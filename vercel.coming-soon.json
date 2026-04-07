@@ -1,0 +1,7 @@
+{
+  "name": "aqurion-coming-soon",
+  "buildCommand": "cd apps/coming-soon && npm run build",
+  "outputDirectory": "apps/coming-soon/.next",
+  "installCommand": "npm install",
+  "framework": "nextjs"
+}
