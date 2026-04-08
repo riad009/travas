@@ -11,7 +11,7 @@ function BrandCard({ brand }: { brand: (typeof AQURION_BRANDS)[0] }) {
   const [hovered, setHovered] = React.useState(false);
   return (
     <Link
-      href={`/?brand=${brand.id}`}
+      href={`/preview?brand=${brand.id}`}
       style={{
         display: "flex",
         alignItems: "flex-start",

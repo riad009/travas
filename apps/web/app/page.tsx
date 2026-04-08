@@ -480,7 +480,7 @@ export default function HomePage() {
               <a
                 key={b.id}
                 className="corp-div-card"
-                href={`https://${b.domain}`}
+                href={b.url || `https://${b.domain}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

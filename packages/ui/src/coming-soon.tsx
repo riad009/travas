@@ -128,14 +128,28 @@ export function ComingSoon({ brand }: ComingSoonProps) {
         }
 
         .cs-icon-wrapper {
-          width: 90px; height: 90px;
-          border-radius: 24px;
+          width: 110px; height: 110px;
+          border-radius: 26px;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 2.5rem;
           margin: 0 auto 1.5rem;
           border: 1px solid rgba(255,255,255,0.1);
+          overflow: hidden;
+        }
+        .cs-icon-wrapper img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 26px;
+        }
+        .cs-logo-base {
+          width: 110px;
+          height: auto;
+          margin: 0 auto 1.5rem;
+          display: block;
+          filter: drop-shadow(0 0 20px rgba(0,180,255,0.3));
         }
 
         .cs-title {
@@ -331,15 +345,25 @@ export function ComingSoon({ brand }: ComingSoonProps) {
             Coming Soon
           </div>
 
-          <div
-            className="cs-icon-wrapper"
-            style={{
-              background: brand.accentColor + "15",
-              borderColor: brand.accentColor + "30",
-            }}
-          >
-            {brand.icon}
-          </div>
+          {/* Logo / Icon */}
+          {brand.logoUrl ? (
+            <div
+              className="cs-icon-wrapper"
+              style={{ background: "transparent", border: "none" }}
+            >
+              <img src={brand.logoUrl} alt={`${brand.name} logo`} />
+            </div>
+          ) : (
+            <div
+              className="cs-icon-wrapper"
+              style={{
+                background: brand.accentColor + "15",
+                borderColor: brand.accentColor + "30",
+              }}
+            >
+              {brand.icon}
+            </div>
+          )}
 
           <h1 className="cs-title">{brand.name}</h1>
           <p className="cs-tagline">{brand.tagline}</p>

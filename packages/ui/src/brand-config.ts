@@ -7,12 +7,19 @@ export interface BrandConfig {
   tagline: string;
   description: string;
   domain: string;
+  url?: string;
   altDomains?: string[];
+  buildPriority: "ongoing" | "level1" | "level2" | "level3";
+  buildType: "full-site" | "landing" | "profile";
+  logoUrl?: string; // path relative to /public
+  parentId?: string;
   tier: 1 | 2 | 3;
   category: string;
   accentColor: string;
   gradient: string;
   icon: string;
+  notes?: string;
+  referenceUrl?: string;
   launchDate?: string;
   socialLinks?: {
     linkedin?: string;
@@ -23,327 +30,115 @@ export interface BrandConfig {
 }
 
 export const AQURION_BRANDS: BrandConfig[] = [
-  // ── TIER 1: Corporate & Primary Brand ──────────────────────────
-  {
-    id: "aqurion-holdings",
-    name: "Aqurion Holdings",
-    tagline: "Building the Future of Digital Business",
-    description:
-      "Aqurion Holdings is the parent company driving innovation across technology, finance, marketing, and beyond. We build world-class digital platforms and services.",
-    domain: "Aqurion.NET",
-    tier: 1,
-    category: "Corporate",
-    accentColor: "#6C63FF",
-    gradient: "linear-gradient(135deg, #0F0C29 0%, #302B63 50%, #24243E 100%)",
-    icon: "◈",
-  },
-  {
-    id: "aqurion-ai",
-    name: "Aqurion AI",
-    tagline: "Intelligence Without Limits",
-    description:
-      "Aqurion AI delivers cutting-edge artificial intelligence solutions that transform businesses. From machine learning to generative AI, we power the next era of intelligent automation.",
-    domain: "Aqurion.AI",
-    tier: 1,
-    category: "Technology",
-    accentColor: "#00D4FF",
-    gradient: "linear-gradient(135deg, #000428 0%, #004E92 100%)",
-    icon: "◎",
-  },
-  {
-    id: "aqurion-dev",
-    name: "Aqurion Development",
-    tagline: "Code That Scales. Products That Win.",
-    description:
-      "Aqurion Development is a full-service software development firm specializing in web, mobile, and enterprise platforms. We turn ideas into market-ready products.",
-    domain: "AqurionDev.com",
-    tier: 1,
-    category: "Technology",
-    accentColor: "#00FF88",
-    gradient: "linear-gradient(135deg, #0A0A0A 0%, #0D1B2A 50%, #1B4332 100%)",
-    icon: "⬡",
-  },
-  {
-    id: "travis-roque-soto",
-    name: "Travis Roque Soto",
-    tagline: "Entrepreneur. Innovator. Visionary.",
-    description:
-      "Travis Roque Soto is a serial entrepreneur and technology executive driving the Aqurion ecosystem. Find his portfolio, insights, and entrepreneurial journey here.",
-    domain: "TravisRoqueSoto.ME",
-    tier: 1,
-    category: "Personal",
-    accentColor: "#F5A623",
-    gradient: "linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%)",
-    icon: "⬟",
-  },
-  {
-    id: "aqurion-sa",
-    name: "Aqurion South America",
-    tagline: "Connecting Latin America to the Digital Economy",
-    description:
-      "Aqurion South America bridges the gap between global digital innovation and Latin American markets, providing localized technology solutions for the region.",
-    domain: "AqurionSA.LAT",
-    altDomains: ["AqurionSA.CO"],
-    tier: 1,
-    category: "Regional",
-    accentColor: "#FFD700",
-    gradient: "linear-gradient(135deg, #0D0D0D 0%, #1A0A2E 50%, #2D1B69 100%)",
-    icon: "◉",
-  },
+  // ── PHASE 1 / ONGOING (Tier 1 & 2) ──────────────────────────
+  { id: "aqurion-holdings", name: "Aqurion Holdings", tagline: "Where the Spark Starts.", description: "Aqurion Holdings serves as the strategic parent company responsible for guiding the development, expansion, and integration of the Aqurion technology ecosystem.", domain: "Aqurion.NET", buildPriority: "ongoing", buildType: "full-site", logoUrl: "/logos/aqurion-holdings-icon.png", tier: 1, category: "Corporate", accentColor: "#6C63FF", gradient: "linear-gradient(135deg, #0F0C29 0%, #302B63 50%, #24243E 100%)", icon: "◈", notes: "Home, Contact, About, Link to all subs, Blog, AI news Feed, employment, FAQ", referenceUrl: "https://www.expa.com/" },
+  { id: "aqurion-ai", name: "Aqurion AI", tagline: "Intelligence, Illuminated.", description: "Aqurion AI delivers cutting-edge artificial intelligence solutions that transform businesses.", domain: "Aqurion.AI", buildPriority: "ongoing", buildType: "full-site", logoUrl: "/logos/aqurion-base-logo.png", tier: 1, category: "Technology", accentColor: "#00D4FF", gradient: "linear-gradient(135deg, #000428 0%, #004E92 100%)", icon: "◎", notes: "Click to see sectors and applications.", referenceUrl: "https://human.capital/" },
+  { id: "aqurion-marketing", name: "Aqurion Marketing", tagline: "Data-Driven Marketing Built for Modern Businesses", description: "Aqurion Marketing is a next-generation marketing platform designed to help businesses.", domain: "AqurionMarketing.com", altDomains: ["Aqurion.click"], buildPriority: "ongoing", buildType: "full-site", logoUrl: "/logos/aqurion-base-logo.png", tier: 2, category: "Marketing", accentColor: "#FF6B6B", gradient: "linear-gradient(135deg, #1A0A0A 0%, #2D1515 50%, #FF6B6B22 100%)", icon: "◆", referenceUrl: "https://mandala.framer.website/?utm_source=framer" },
+  { id: "aqurion-financial", name: "Aqurion Financial", tagline: "Smarter Financial Tools for Growing Businesses", description: "Aqurion Financial is being developed to provide modern financial tools tailored to the needs of small and mid-sized businesses.", domain: "AqurionFi.com", buildPriority: "ongoing", buildType: "landing", logoUrl: "/logos/aqurion-base-logo.png", tier: 2, category: "Finance", accentColor: "#4ECDC4", gradient: "linear-gradient(135deg, #0A1A1A 0%, #0D2626 50%, #4ECDC422 100%)", icon: "◇", notes: "Integrate payroll, and ai tax prep.", referenceUrl: "https://mercury.com/" },
+  { id: "aqurion-directory", name: "Aqurion Directory", tagline: "Connecting Businesses with Customers", description: "Aqurion Directory is a next-generation business discovery platform.", domain: "AqurionPages.com", altDomains: ["Aqurion.Shop", "Aqurion.directory"], buildPriority: "ongoing", buildType: "landing", logoUrl: "/logos/aqurion-base-logo.png", tier: 2, category: "Directory", accentColor: "#A78BFA", gradient: "linear-gradient(135deg, #0D0A1A 0%, #1A1230 50%, #A78BFA22 100%)", icon: "⬡", notes: "Combo of Yelp + Groupon + Rakuten elements." },
+  { id: "aqurion-stores", name: "Aqurion Stores", tagline: "A Modern Ecommerce Platform Built for Growth", description: "Aqurion Stores is an advanced ecommerce platform designed to give businesses complete control.", domain: "AqurionMarketplace.com", altDomains: ["Aqurion.store"], buildPriority: "ongoing", buildType: "landing", logoUrl: "/logos/aqurion-base-logo.png", tier: 2, category: "Commerce", accentColor: "#F59E0B", gradient: "linear-gradient(135deg, #1A1400 0%, #2D2200 50%, #F59E0B22 100%)", icon: "◈", notes: "Functions like Shopify, but cheaper fees, AI tools." },
+  { id: "aqurion-sales", name: "Aqurion Sales", tagline: "Intelligent Sales Tools to Help Businesses Close More Deals", description: "Aqurion Sales provides powerful CRM and sales management tools.", domain: "AqurionSales.com", buildPriority: "ongoing", buildType: "full-site", logoUrl: "/logos/aqurion-base-logo.png", tier: 2, category: "Sales", accentColor: "#10B981", gradient: "linear-gradient(135deg, #0A1A12 0%, #0D261A 50%, #10B98122 100%)", icon: "◉", referenceUrl: "https://aircall.io/" },
+  { id: "aqurion-dev", name: "Aqurion Development", tagline: "The Modern Filament.", description: "Aqurion Development is the technology division responsible for building the applications that power the Aqurion ecosystem.", domain: "AqurionDev.com", buildPriority: "ongoing", buildType: "full-site", logoUrl: "/logos/aqurion-base-logo.png", tier: 1, category: "Technology", accentColor: "#00FF88", gradient: "linear-gradient(135deg, #0A0A0A 0%, #0D1B2A 50%, #1B4332 100%)", icon: "⬡", referenceUrl: "https://ideamaker.agency/" },
+  { id: "aqurion-sa", name: "Aqurion South America", tagline: "Expanding Innovation Across South America", description: "Aqurion South America represents the company's commitment to supporting entrepreneurs across Latin America.", domain: "AqurionSA.LAT", altDomains: ["AqurionSA.CO"], buildPriority: "ongoing", buildType: "full-site", logoUrl: "/logos/aqurion-base-logo.png", tier: 1, category: "Regional", accentColor: "#FFD700", gradient: "linear-gradient(135deg, #0D0D0D 0%, #1A0A2E 50%, #2D1B69 100%)", icon: "◉", notes: "Same as Aqurion site but translated to spanish." },
+  { id: "travis-roque-soto", name: "ExExecutive Profile", tagline: "Entrepreneur & Visionary.", description: "Travis Roque Soto profile site.", domain: "TravisRoqueSoto.ME", buildPriority: "ongoing", buildType: "profile", logoUrl: "/logos/aqurion-base-logo.png", tier: 1, category: "Personal", accentColor: "#F5A623", gradient: "linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%)", icon: "⬟", notes: "1-4 pages with contact", referenceUrl: "https://share.google/MKP1Ew8c567T1Abs8" },
+  { id: "aqurion-ps", name: "Aqurion Property Services", tagline: "Real Estate. Reimagined.", description: "Aqurion Property Services provides technology-driven real estate solutions.", domain: "AqurionPS.com", buildPriority: "ongoing", buildType: "full-site", logoUrl: "/logos/aqurion-base-logo.png", tier: 2, category: "Real Estate", accentColor: "#3B82F6", gradient: "linear-gradient(135deg, #0A0E1A 0%, #0D1626 50%, #3B82F622 100%)", icon: "⬟", referenceUrl: "https://www.itransition.com/real-estate" },
+  { id: "aqurion-hospitality", name: "Aqurion Food & Hospitality", tagline: "Exceptional Experiences, Every Stay.", description: "Aqurion Hospitality provides digital solutions for hospitality businesses.", domain: "AqurionHospitality.com", buildPriority: "ongoing", buildType: "full-site", tier: 3, category: "Hospitality", accentColor: "#D97706", gradient: "linear-gradient(135deg, #1A1000 0%, #261800 50%, #D9770622 100%)", icon: "🍽", referenceUrl: "https://sevenrooms.com/" },
 
-  // ── TIER 2: Business Divisions ──────────────────────────────────
-  {
-    id: "aqurion-marketing",
-    name: "Aqurion Marketing",
-    tagline: "Amplify Your Brand. Accelerate Growth.",
-    description:
-      "Aqurion Marketing is a full-service digital marketing agency providing SEO, social media, paid advertising, content strategy, and brand development.",
-    domain: "AqurionMarketing.com",
-    altDomains: ["Aqurion.click"],
-    tier: 2,
-    category: "Marketing",
-    accentColor: "#FF6B6B",
-    gradient: "linear-gradient(135deg, #1A0A0A 0%, #2D1515 50%, #FF6B6B22 100%)",
-    icon: "◆",
-  },
-  {
-    id: "aqurion-financial",
-    name: "Aqurion Financial",
-    tagline: "Smart Capital. Smarter Future.",
-    description:
-      "Aqurion Financial provides innovative fintech solutions, investment services, and financial technology platforms for businesses and individuals.",
-    domain: "AqurionFi.com",
-    tier: 2,
-    category: "Finance",
-    accentColor: "#4ECDC4",
-    gradient: "linear-gradient(135deg, #0A1A1A 0%, #0D2626 50%, #4ECDC422 100%)",
-    icon: "◇",
-  },
-  {
-    id: "aqurion-directory",
-    name: "Aqurion Directory",
-    tagline: "Every Business. One Place.",
-    description:
-      "Aqurion Pages is the comprehensive business directory platform connecting consumers with verified local and national businesses across all industries.",
-    domain: "AqurionPages.com",
-    altDomains: ["Aqurion.Shop", "Aqurion.directory"],
-    tier: 2,
-    category: "Directory",
-    accentColor: "#A78BFA",
-    gradient: "linear-gradient(135deg, #0D0A1A 0%, #1A1230 50%, #A78BFA22 100%)",
-    icon: "⬡",
-  },
-  {
-    id: "aqurion-marketplace",
-    name: "Aqurion Stores",
-    tagline: "Buy. Sell. Thrive.",
-    description:
-      "AqurionMarketplace is the premier e-commerce platform for businesses to create and manage online stores, reach millions of customers, and grow revenue.",
-    domain: "AqurionMarketplace.com",
-    altDomains: ["Aqurion.store"],
-    tier: 2,
-    category: "Commerce",
-    accentColor: "#F59E0B",
-    gradient: "linear-gradient(135deg, #1A1400 0%, #2D2200 50%, #F59E0B22 100%)",
-    icon: "◈",
-  },
-  {
-    id: "aqurion-sales",
-    name: "Aqurion Sales",
-    tagline: "Close More. Earn More.",
-    description:
-      "Aqurion Sales delivers cutting-edge CRM tools, sales automation, and lead generation solutions to help businesses convert prospects into loyal customers.",
-    domain: "AqurionSales.com",
-    tier: 2,
-    category: "Sales",
-    accentColor: "#10B981",
-    gradient: "linear-gradient(135deg, #0A1A12 0%, #0D261A 50%, #10B98122 100%)",
-    icon: "◉",
-  },
-  {
-    id: "aqurion-ps",
-    name: "Property Services",
-    tagline: "Real Estate. Reimagined.",
-    description:
-      "Aqurion Property Services provides technology-driven real estate solutions including property management, listings, tenant portals, and investment analytics.",
-    domain: "AqurionPS.com",
-    tier: 2,
-    category: "Real Estate",
-    accentColor: "#3B82F6",
-    gradient: "linear-gradient(135deg, #0A0E1A 0%, #0D1626 50%, #3B82F622 100%)",
-    icon: "⬟",
-  },
+  // ── FULL SITE PRIORITIES (Various Levels) ───────────────────────
+  { id: "aqurion-home", name: "Aqurion Home Services", tagline: "Your Home. Our Expertise.", description: "Aqurion Home connects homeowners with top-rated professionals.", domain: "Aqurionhome.com", buildPriority: "level2", buildType: "full-site", tier: 3, category: "Home Services", accentColor: "#F97316", gradient: "linear-gradient(135deg, #1A0E00 0%, #261500 50%, #F9731622 100%)", icon: "⌂", referenceUrl: "https://www.angi.com/" },
+  { id: "aqurion-atm", name: "Aqurion Automotive", tagline: "Drive Smarter. Service Better.", description: "Aqurion Automotive powers the automotive industry.", domain: "AqurionATM.com", buildPriority: "level1", buildType: "full-site", tier: 3, category: "Automotive", accentColor: "#EF4444", gradient: "linear-gradient(135deg, #1A0A0A 0%, #260D0D 50%, #EF444422 100%)", icon: "⚙", notes: "Similar to autotrader but only show listings of businesses using our app.", referenceUrl: "https://www.autotrader.com/" },
+  { id: "aqurion-file", name: "Aqurion Finance & Legal", tagline: "Expertise On Demand.", description: "AqurionFile connects clients with verified professional service providers.", domain: "AqurionFile.com", buildPriority: "level3", buildType: "full-site", tier: 3, category: "Professional Services", accentColor: "#8B5CF6", gradient: "linear-gradient(135deg, #0E0A1A 0%, #160D26 50%, #8B5CF622 100%)", icon: "⚖", referenceUrl: "https://www.mycase.com/" },
+  { id: "aqurion-leisure", name: "Aqurion Leisure & Recreation", tagline: "Explore Without Limits.", description: "AqurionLeisure is your gateway to unforgettable experiences.", domain: "AqurionLeisure.com", buildPriority: "level3", buildType: "full-site", tier: 3, category: "Travel", accentColor: "#06B6D4", gradient: "linear-gradient(135deg, #000E1A 0%, #001626 50%, #06B6D422 100%)", icon: "🏖", referenceUrl: "https://pelorustravel.com/" },
+  { id: "aqurion-travel", name: "Aqurion TravelSuite", tagline: "Complete Travel Management.", description: "AqurionTravel is a travel website to compete with priceline, expedia.", domain: "Aquriontravel.com", buildPriority: "level3", buildType: "full-site", tier: 3, category: "Travel", accentColor: "#0EA5E9", gradient: "linear-gradient(135deg, #000A14 0%, #00121E 50%, #0EA5E922 100%)", icon: "✈", notes: "Exclusive app for merchants, cross promotes software.", referenceUrl: "https://www.trip.com" },
+  { id: "aqurion-wellness", name: "Aqurion Beauty, Wellness & Fitness", tagline: "Live Well. Move More.", description: "AqurionWellness connects fitness enthusiasts with services.", domain: "Aqurionwellness.com", buildPriority: "level2", buildType: "full-site", tier: 3, category: "Health & Wellness", accentColor: "#22C55E", gradient: "linear-gradient(135deg, #001A0A 0%, #002614 50%, #22C55E22 100%)", icon: "🧘", referenceUrl: "https://www.technogym.com/en-INT/ecosystem/#CO" },
+  { id: "aqurion-animal", name: "Aqurion Animal & Veterinary", tagline: "Because They Deserve the Best.", description: "The premier platform connecting animals with care.", domain: "AqurionAnimal.com", buildPriority: "level3", buildType: "full-site", tier: 3, category: "Animal Services", accentColor: "#84CC16", gradient: "linear-gradient(135deg, #0A1400 0%, #121E00 50%, #84CC1622 100%)", icon: "🐾", referenceUrl: "https://digitail.com/" },
+  { id: "aqurion-services", name: "Aqurion Security & Utilities", tagline: "Safety. Reliability. Community.", description: "AqurionServices powers security and utility providers.", domain: "AqurionServices.com", buildPriority: "level1", buildType: "full-site", tier: 3, category: "Security & Municipal", accentColor: "#64748B", gradient: "linear-gradient(135deg, #0A0C0E 0%, #141820 50%, #64748B22 100%)", icon: "🛡", referenceUrl: "https://www.anduril.com/" },
+  { id: "aqurion-burser", name: "Aqurion Education / Nonprofit / Campaigns", tagline: "Empower. Educate. Elevate.", description: "Administration tools for education and nonprofits.", domain: "AqurionBurser.com", buildPriority: "level3", buildType: "full-site", tier: 3, category: "Education & Non-Profit", accentColor: "#EC4899", gradient: "linear-gradient(135deg, #1A0010 0%, #260016 50%, #EC489922 100%)", icon: "🎓", referenceUrl: "https://www.assouline.com/" },
+  { id: "aqurion-rc", name: "Aqurion Retail & Commerce", tagline: "Retail Transformed.", description: "AqurionRC empowers retail businesses.", domain: "AqurionRC.com", buildPriority: "level3", buildType: "full-site", tier: 3, category: "Retail", accentColor: "#F43F5E", gradient: "linear-gradient(135deg, #1A0008 0%, #260010 50%, #F43F5E22 100%)", icon: "🛍", referenceUrl: "https://squareup.com/us/en/point-of-sale/retail" },
+  { id: "aqurion-creative", name: "Aqurion Photography, Creative & Media", tagline: "Where Vision Becomes Reality.", description: "AqurionCreative is a premier creative studio.", domain: "AqurionCreative.com", buildPriority: "level3", buildType: "full-site", tier: 3, category: "Creative", accentColor: "#A855F7", gradient: "linear-gradient(135deg, #0D0014 0%, #16001E 50%, #A855F722 100%)", icon: "🎨", referenceUrl: "https://www.affinity.studio/" },
 
-  // ── TIER 3: Industry Verticals ──────────────────────────────────
-  {
-    id: "aqurion-home",
-    name: "Home Services",
-    tagline: "Your Home. Our Expertise.",
-    description:
-      "Aqurion Home connects homeowners with top-rated professionals for every home service need — from repairs and renovation to cleaning and landscaping.",
-    domain: "AqurionHome.com",
-    tier: 3,
-    category: "Home Services",
-    accentColor: "#F97316",
-    gradient: "linear-gradient(135deg, #1A0E00 0%, #261500 50%, #F9731622 100%)",
-    icon: "⌂",
-  },
-  {
-    id: "aqurion-atm",
-    name: "Automotive",
-    tagline: "Drive Smarter. Service Better.",
-    description:
-      "AqurionATM powers the automotive industry with digital tools for dealerships, repair shops, and consumers — from inventory management to service booking.",
-    domain: "AqurionATM.com",
-    tier: 3,
-    category: "Automotive",
-    accentColor: "#EF4444",
-    gradient: "linear-gradient(135deg, #1A0A0A 0%, #260D0D 50%, #EF444422 100%)",
-    icon: "⚙",
-  },
-  {
-    id: "aqurion-file",
-    name: "Professional Services",
-    tagline: "Expertise On Demand.",
-    description:
-      "AqurionFile connects clients with verified legal, accounting, consulting, and professional service providers with streamlined scheduling and document management.",
-    domain: "AqurionFile.com",
-    tier: 3,
-    category: "Professional Services",
-    accentColor: "#8B5CF6",
-    gradient: "linear-gradient(135deg, #0E0A1A 0%, #160D26 50%, #8B5CF622 100%)",
-    icon: "◻",
-  },
-  {
-    id: "aqurion-leisure",
-    name: "Travel & Leisure",
-    tagline: "Explore Without Limits.",
-    description:
-      "AqurionLeisure is your gateway to unforgettable travel experiences, leisure activities, and curated adventure packages around the globe.",
-    domain: "AqurionLeisure.com",
-    tier: 3,
-    category: "Travel",
-    accentColor: "#06B6D4",
-    gradient: "linear-gradient(135deg, #000E1A 0%, #001626 50%, #06B6D422 100%)",
-    icon: "◎",
-  },
-  {
-    id: "aqurion-travel",
-    name: "Aqurion TravelSuite",
-    tagline: "Complete Travel Management, Redefined.",
-    description:
-      "AqurionTravel is a comprehensive travel management platform for both corporate and leisure travelers — booking, itinerary management, and expense tracking in one suite.",
-    domain: "AqurionTravel.com",
-    tier: 3,
-    category: "Travel Technology",
-    accentColor: "#0EA5E9",
-    gradient: "linear-gradient(135deg, #000A14 0%, #00121E 50%, #0EA5E922 100%)",
-    icon: "✦",
-  },
-  {
-    id: "aqurion-wellness",
-    name: "Fitness & Wellness",
-    tagline: "Live Well. Move More.",
-    description:
-      "AqurionWellness connects fitness enthusiasts with gyms, trainers, wellness coaches, and health services. Your personalized path to a healthier life starts here.",
-    domain: "AqurionWellness.com",
-    tier: 3,
-    category: "Health & Wellness",
-    accentColor: "#22C55E",
-    gradient: "linear-gradient(135deg, #001A0A 0%, #002614 50%, #22C55E22 100%)",
-    icon: "◈",
-  },
-  {
-    id: "aqurion-animal",
-    name: "Animal Services",
-    tagline: "Because They Deserve the Best.",
-    description:
-      "AqurionAnimal is the premier platform for pet owners, breeders, and veterinary professionals — connecting animals with the care, products, and services they need.",
-    domain: "AqurionAnimal.com",
-    tier: 3,
-    category: "Animal Services",
-    accentColor: "#84CC16",
-    gradient: "linear-gradient(135deg, #0A1400 0%, #121E00 50%, #84CC1622 100%)",
-    icon: "⬡",
-  },
-  {
-    id: "aqurion-services",
-    name: "Security & Municipal Services",
-    tagline: "Safety. Reliability. Community.",
-    description:
-      "AqurionServices powers security, utility, and municipal service providers with digital platforms for scheduling, dispatch, compliance, and citizen engagement.",
-    domain: "AqurionServices.com",
-    tier: 3,
-    category: "Security & Municipal",
-    accentColor: "#64748B",
-    gradient: "linear-gradient(135deg, #0A0C0E 0%, #141820 50%, #64748B22 100%)",
-    icon: "◇",
-  },
-  {
-    id: "aqurion-burser",
-    name: "Education & Non-Profit",
-    tagline: "Empower. Educate. Elevate.",
-    description:
-      "AqurionBurser serves educational institutions, associations, and non-profits with digital tools for membership management, fundraising, learning platforms, and administration.",
-    domain: "AqurionBurser.com",
-    tier: 3,
-    category: "Education & Non-Profit",
-    accentColor: "#EC4899",
-    gradient: "linear-gradient(135deg, #1A0010 0%, #260016 50%, #EC489922 100%)",
-    icon: "◆",
-  },
-  {
-    id: "aqurion-fintech-lab",
-    name: "Fintech Lab & Internships",
-    tagline: "Learn. Launch. Lead.",
-    description:
-      "AqurionFintechLab is the gateway for the next generation of tech and finance professionals — internships, mentorship programs, and hands-on fintech experience.",
-    domain: "AqurionFintechLab.com",
-    tier: 3,
-    category: "Education & Career",
-    accentColor: "#7C3AED",
-    gradient: "linear-gradient(135deg, #0D0A1A 0%, #160D2A 50%, #7C3AED22 100%)",
-    icon: "⬟",
-  },
-  {
-    id: "aqurion-hospitality",
-    name: "Hospitality Services",
-    tagline: "Exceptional Experiences, Every Stay.",
-    description:
-      "AqurionHospitality provides digital solutions for hotels, restaurants, event venues, and hospitality businesses to deliver 5-star experiences at every touchpoint.",
-    domain: "AqurionHospitality.com",
-    tier: 3,
-    category: "Hospitality",
-    accentColor: "#D97706",
-    gradient: "linear-gradient(135deg, #1A1000 0%, #261800 50%, #D9770622 100%)",
-    icon: "◉",
-  },
-  {
-    id: "aqurion-rc",
-    name: "Retail & Commerce",
-    tagline: "Retail Transformed.",
-    description:
-      "AqurionRC empowers retail businesses with omnichannel commerce solutions, inventory management, POS systems, and consumer analytics for the modern marketplace.",
-    domain: "AqurionRC.com",
-    tier: 3,
-    category: "Retail",
-    accentColor: "#F43F5E",
-    gradient: "linear-gradient(135deg, #1A0008 0%, #260010 50%, #F43F5E22 100%)",
-    icon: "◈",
-  },
-  {
-    id: "aqurion-creative",
-    name: "Design & Creative",
-    tagline: "Where Vision Becomes Reality.",
-    description:
-      "AqurionCreative is a premier creative studio offering graphic design, branding, UI/UX, video production, and digital content creation for brands that demand excellence.",
-    domain: "AqurionCreative.com",
-    tier: 3,
-    category: "Creative",
-    accentColor: "#A855F7",
-    gradient: "linear-gradient(135deg, #0D0014 0%, #16001E 50%, #A855F722 100%)",
-    icon: "✦",
-  },
+  // ── SUB-APPS / LANDING PAGES (Level 1, 2, 3) ──────────────────
+  // Property Level 1
+  { id: "aqurion-propertyflow", name: "Aqurion PropertyFlow", tagline: "Residential & commercial property management.", description: "Streamlined app for property flow management.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Real Estate", icon: "🏢", accentColor: "#3B82F6", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.appfolio.com/" },
+  { id: "aqurion-hoapro", name: "Aqurion HOAPro", tagline: "HOA management simplified.", description: "Homeowner and mobile home association management.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Real Estate", icon: "🏘", accentColor: "#3B82F6", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://easyhoa.com/" },
+  { id: "aqurion-hotelsuite", name: "Aqurion HotelSuite", tagline: "Independent Hotels management.", description: "Hotel management software suite.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Real Estate", icon: "🏨", accentColor: "#3B82F6", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.smartorder.ai/hotel-management-software/" },
+  { id: "aqurion-marinasuite", name: "Aqurion MarinaSuite", tagline: "Marinas & RV parks management.", description: "Dockwa competitor.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Real Estate", icon: "⛵", accentColor: "#3B82F6", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://marinas.dockwa.com/" },
+  { id: "aqurion-parkingflow", name: "Aqurion ParkingFlow", tagline: "Parking lot management software.", description: "Parking software.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Real Estate", icon: "🅿", accentColor: "#3B82F6", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.simplypark.io" },
+  { id: "aqurion-funeralsuite", name: "Aqurion FuneralSuite", tagline: "Funeral homes & cemetery management.", description: "Cemetery management.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Real Estate", icon: "⚱", accentColor: "#3B82F6", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://plotbox.com/" },
+  
+  // Home Services Level 2
+  { id: "aqurion-homeservicessuite", name: "Aqurion HomeServicesSuite", tagline: "Landscaping, pest, roofing, handyman.", description: "Services suite.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Home Services", icon: "🛠", accentColor: "#F97316", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://handyman.onegsgroup.com/products/handyman-mobile/" },
+  { id: "aqurion-solarpro", name: "Aqurion SolarPro", tagline: "Solar installation and maintenance.", description: "Solar admin.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Home Services", icon: "☀", accentColor: "#F97316", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.gosolarapp.org/" },
+  { id: "aqurion-contractingplus", name: "Aqurion ContractingPlus", tagline: "Plumbing, electrical, general contracting.", description: "Contractor OS.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Home Services", icon: "🏗", accentColor: "#F97316", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://contractorforeman.com/" },
+
+  // Auto Level 1
+  { id: "aqurion-autosuite", name: "Aqurion AutoSuite", tagline: "Manage car sales, repair, rentals.", description: "DealerCenter competitor.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Automotive", icon: "🚘", accentColor: "#EF4444", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.dealercenter.com/" },
+  { id: "aqurion-towsuite", name: "Aqurion TowSuite", tagline: "Tow, impound, roadside assistance.", description: "TowBook competitor.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Automotive", icon: "🛻", accentColor: "#EF4444", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://towbook.com/" },
+  { id: "aqurion-motorsone", name: "Aqurion MotorsOne", tagline: "Manage motorsports and boat sales.", description: "RumbleOn competitor.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Automotive", icon: "🏍", accentColor: "#EF4444", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://rumbleon.com" },
+
+  // Finance/Legal Level 3
+  { id: "aqurion-legalone", name: "Aqurion LegalOne", tagline: "Law firm management software solution.", description: "Clio competitor.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Professional Services", icon: "⚖", accentColor: "#8B5CF6", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.clio.com/" },
+  { id: "aqurion-financeflow", name: "Aqurion FinanceFlow", tagline: "Secondary home, auto, accounting.", description: "LoanDisk competitor.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Professional Services", icon: "📊", accentColor: "#8B5CF6", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.loandisk.com" },
+  { id: "aqurion-escrowsuite", name: "Aqurion EscrowSuite", tagline: "Title, escrow, real estate transactions.", description: "Accuair competitor.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Professional Services", icon: "📝", accentColor: "#8B5CF6", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://accuair.io" },
+  { id: "aqurion-collectionagencysuite", name: "Aqurion CollectionAgencySuite", tagline: "Debt collection and recovery.", description: "Collect.org competitor.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Professional Services", icon: "☎", accentColor: "#8B5CF6", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.collect.org/" },
+
+  // Leisure Level 3
+  { id: "aqurion-clubmanager", name: "Aqurion ClubManager", tagline: "Golf, country, pool, tennis clubs.", description: "Club management.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Travel", icon: "⛳", accentColor: "#06B6D4", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.globalnorthstar.com/" },
+  { id: "aqurion-skiresortflow", name: "Aqurion SkiResortFlow", tagline: "Ski, mountain resorts management.", description: "Resort management.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Travel", icon: "⛷", accentColor: "#06B6D4", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://snowcloud.io" },
+  { id: "aqurion-amusementflow", name: "Aqurion AmusementFlow", tagline: "Parks, zoos, museums, galleries.", description: "Amusement management.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Travel", icon: "🎢", accentColor: "#06B6D4", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://snowcloud.io/industries/" },
+
+  // Wellness Level 2
+  { id: "aqurion-salonpro", name: "Aqurion SalonPro", tagline: "Hair, nail, spa, grooming services.", description: "Salon ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Health & Wellness", icon: "✂", accentColor: "#22C55E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://daysmart.com" },
+  { id: "aqurion-doggroomingflow", name: "Aqurion DogGroomingFlow", tagline: "Dog grooming, boarding, pet services.", description: "Pet care ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Health & Wellness", icon: "🐕", accentColor: "#22C55E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://daysmart.com" },
+  { id: "aqurion-fitnessflow", name: "Aqurion FitnessFlow", tagline: "Gyms, personal trainers, classes.", description: "Gym software.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Health & Wellness", icon: "🏋", accentColor: "#22C55E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://cloudgym.com/" },
+  { id: "aqurion-spasuite", name: "Aqurion SpaSuite", tagline: "Sun tan, wellness, relaxation services.", description: "Spa software.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Health & Wellness", icon: "💆", accentColor: "#22C55E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://daysmart.com" },
+  { id: "aqurion-cosmeticpro", name: "Aqurion CosmeticPro", tagline: "Cosmetic surgery, med spa management.", description: "Med spa ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Health & Wellness", icon: "💉", accentColor: "#22C55E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.carepatron.com" },
+  { id: "aqurion-dentalpro", name: "Aqurion DentalPro", tagline: "Dental Practice management and billing.", description: "Dental ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Health & Wellness", icon: "🦷", accentColor: "#22C55E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.carepatron.com" },
+  { id: "aqurion-adjustmentpro", name: "Aqurion AdjustmentPro", tagline: "Chiropratic & physical therapt.", description: "Chiro ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Health & Wellness", icon: "🦴", accentColor: "#22C55E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.carepatron.com" },
+  { id: "aqurion-psychpro", name: "Aqurion PsychPro", tagline: "Mental health practice management & billing.", description: "Mental health ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Health & Wellness", icon: "🧠", accentColor: "#22C55E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.carepatron.com" },
+  { id: "aqurion-medpro", name: "Aqurion MedPro", tagline: "Medical and healthcare practice management.", description: "Med ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Health & Wellness", icon: "⚕", accentColor: "#22C55E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.carepatron.com" },
+
+  // Animal Level 3
+  { id: "aqurion-vetpro", name: "Aqurion VetPro", tagline: "Vet clinics and animal hospitals.", description: "Vet software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Animal Services", icon: "🩺", accentColor: "#84CC16", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.carepatron.com" },
+  { id: "aqurion-breedingsuite", name: "Aqurion BreedingSuite", tagline: "Dog, horse breeding, boarding management.", description: "Breeding ops.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Animal Services", icon: "🐎", accentColor: "#84CC16", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://equinem.com/" },
+
+  // Security Level 1
+  { id: "aqurion-securitymaster", name: "Aqurion SecurityMaster", tagline: "Residential and commercial security management.", description: "Security ops.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Security & Municipal", icon: "🔒", accentColor: "#64748B", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.boldgroup.com/financial-management-solutions/alarmbiller/" },
+  { id: "aqurion-utilitysuite", name: "Aqurion UtilitySuite", tagline: "Water, sewer, gas, electric, cellular.", description: "Utility ops.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Security & Municipal", icon: "⚡", accentColor: "#64748B", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.utilitybillingsoftware.com/" },
+  { id: "aqurion-munisuite", name: "Aqurion MuniSuite", tagline: "Bill payment services for small municipalities.", description: "Gov ops.", domain: "TBD", buildPriority: "level1", buildType: "landing", tier: 3, category: "Security & Municipal", icon: "🏛", accentColor: "#64748B", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://catalisgov.com/payments/utility-payments/" },
+
+  // Beta Lab
+  { id: "aqurion-fintechlab", name: "Aqurion Beta Lab", tagline: "Internship application, link back.", description: "Beta lab applications.", domain: "AqurionFintechLab.com", buildPriority: "level1", buildType: "landing", tier: 3, category: "Education & Career", icon: "🔬", accentColor: "#7C3AED", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://portal-fintech.com/" },
+
+  // Edu Level 3
+  { id: "aqurion-educationsuite", name: "Aqurion EducationSuite", tagline: "Schools, tutors, colleges, programs.", description: "Edu software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Education & Non-Profit", icon: "🏫", accentColor: "#EC4899", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.classter.com" },
+  { id: "aqurion-donorflow", name: "Aqurion DonorFlow", tagline: "Track donations and Independent political campaigns.", description: "Donor software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Education & Non-Profit", icon: "🗳", accentColor: "#EC4899", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.anedot.com/" },
+  { id: "aqurion-roster", name: "Aqurion Roster", tagline: "Management of non-profits, donations.", description: "Non-profit ops.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Education & Non-Profit", icon: "📋", accentColor: "#EC4899", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.imis.com/" },
+  { id: "aqurion-careflow", name: "Aqurion CareFlow", tagline: "Daycare/ afterschool programs.", description: "Care software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Education & Non-Profit", icon: "🧸", accentColor: "#EC4899", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.procaresoftware.com/" },
+
+  // Food & Hosp Level 2
+  { id: "aqurion-restaurantone", name: "Aqurion RestaurantOne", tagline: "Independent restaurants, cafes management.", description: "Restaurant ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Hospitality", icon: "🍳", accentColor: "#D97706", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://pos.toasttab.com" },
+  { id: "aqurion-cateringsuite", name: "Aqurion CateringSuite", tagline: "Catering, event, party services.", description: "Cater ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Hospitality", icon: "🥂", accentColor: "#D97706", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.caterzen.com/" },
+  { id: "aqurion-foodtruckpro", name: "Aqurion FoodTruckPro", tagline: "Food truck operations management.", description: "Foodtruck ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Hospitality", icon: "🚐", accentColor: "#D97706", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://easyeats.com/" },
+  { id: "aqurion-barsuite", name: "Aqurion BarSuite", tagline: "Bars, nightclubs, lounge management.", description: "Bar ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Hospitality", icon: "🍸", accentColor: "#D97706", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.novatab.com/restaurants/bars-nightclubs" },
+  { id: "aqurion-winerymanager", name: "Aqurion WineryManager", tagline: "Winery, vineyard operations management.", description: "Winery ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Hospitality", icon: "🍷", accentColor: "#D97706", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.360winery.com/" },
+  { id: "aqurion-weddingplannerpro", name: "Aqurion WeddingPlannerPro", tagline: "Event and wedding planning software.", description: "Event ops.", domain: "TBD", buildPriority: "level2", buildType: "landing", tier: 3, category: "Hospitality", icon: "💍", accentColor: "#D97706", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://planningpod.com/solutions/industries/wedding-planning-firms" },
+
+  // Retail Level 3
+  { id: "aqurion-retailflow", name: "Aqurion RetailFlow", tagline: "Independent retail stores, consignment.", description: "Retail software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Retail", icon: "🏪", accentColor: "#F43F5E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.lsretail.com/industries/retail" },
+  { id: "aqurion-ecommercesuite", name: "Aqurion EcommerceSuite", tagline: "Online shops, subscription box management.", description: "Shopify competitor.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Retail", icon: "🛒", accentColor: "#F43F5E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://shopify.com" },
+  { id: "aqurion-tobaccoliquorpro", name: "Aqurion TobaccoLiquorPro", tagline: "Tobacco, liquor store management.", description: "Liquor software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Retail", icon: "🍾", accentColor: "#F43F5E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.priority-software.com/retail-management/liquor-spirits-tobacco/" },
+  { id: "aqurion-jewelrysuite", name: "Aqurion JewelrySuite", tagline: "Independent jewelry stores management.", description: "Jewelry software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Retail", icon: "💎", accentColor: "#F43F5E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.g2.com/products/valigara-online-jewelry-manager/reviews" },
+  { id: "aqurion-pawnshoppro", name: "Aqurion PawnShopPro", tagline: "Pawn shops and auctions management.", description: "Pawn software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Retail", icon: "🤝", accentColor: "#F43F5E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://pawnsoftsystem.com" },
+  { id: "aqurion-printsignmaster", name: "Aqurion PrintSignMaster", tagline: "Print, sign, graphics, design shops.", description: "Print software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Retail", icon: "🖨", accentColor: "#F43F5E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://shopvox.com/" },
+  { id: "aqurion-staffingmaster", name: "Aqurion StaffingMaster", tagline: "Staffing, temp labor, agency management.", description: "Staffing software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Retail", icon: "👥", accentColor: "#F43F5E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.zoho.com/es-xl/recruit/" },
+  { id: "aqurion-fleetflow", name: "Aqurion FleetFlow", tagline: "Limo, Motorcoach & Aircraft Rental.", description: "Fleet software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Retail", icon: "🚕", accentColor: "#F43F5E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://portal.chartereasy.com/" },
+  { id: "aqurion-enterprise", name: "Aqurion Enterprise", tagline: "Large Scale Retail Accounts.", description: "Enterprise software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Retail", icon: "🏢", accentColor: "#F43F5E", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "" },
+
+  // Creative Level 3
+  { id: "aqurion-photographermaster", name: "Aqurion PhotographerMaster", tagline: "Professional photographers and studios.", description: "Photo studio software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Creative", icon: "📷", accentColor: "#A855F7", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.dubsado.com/" },
+  { id: "aqurion-designsuite", name: "Aqurion DesignSuite", tagline: "Web, graphic, content creation.", description: "Design firm software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Creative", icon: "🎨", accentColor: "#A855F7", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "" },
+  { id: "aqurion-movieperformancepro", name: "Aqurion MoviePerformancePro", tagline: "Movie, concert, theater management.", description: "Theater software.", domain: "TBD", buildPriority: "level3", buildType: "landing", tier: 3, category: "Creative", icon: "🎬", accentColor: "#A855F7", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.cinesync.io/" }
 ];
 
 export function getBrandById(id: string): BrandConfig | undefined {
@@ -352,6 +147,12 @@ export function getBrandById(id: string): BrandConfig | undefined {
 
 export function getBrandsByTier(tier: 1 | 2 | 3): BrandConfig[] {
   return AQURION_BRANDS.filter((b) => b.tier === tier);
+}
+
+export function getBrandsByPriority(
+  priority: BrandConfig["buildPriority"]
+): BrandConfig[] {
+  return AQURION_BRANDS.filter((b) => b.buildPriority === priority);
 }
 
 export const AQURION_HOLDING_BRAND = AQURION_BRANDS[0]!;

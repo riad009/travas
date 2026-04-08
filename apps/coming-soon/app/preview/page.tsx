@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import { ComingSoon } from "@repo/ui/coming-soon";
 import { getBrandById, AQURION_BRANDS } from "@repo/ui/brand-config";
 
