@@ -1,6 +1,0 @@
-{
-  "buildCommand": "npx turbo run build --filter=travis-profile",
-  "outputDirectory": "apps/travis-profile/.next",
-  "installCommand": "npm install",
-  "framework": "nextjs"
-}
