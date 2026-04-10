@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "cd ../.. && npx turbo run build --filter=coming-soon",
   "outputDirectory": ".next",
-  "installCommand": "npm install --prefix ../..",
+  "installCommand": "cd ../.. && npm install",
   "framework": "nextjs"
 }
