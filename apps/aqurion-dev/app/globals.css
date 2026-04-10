@@ -1,27 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #040A06;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-code, pre {
-  font-family: 'JetBrains Mono', monospace;
-}
-
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #040A06; }
-::-webkit-scrollbar-thumb { background: rgba(0,255,136,0.2); border-radius: 3px; }
-
-::selection { background: rgba(0,255,136,0.25); color: #fff; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: #000B1A; color: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: rgba(255,215,0,0.2); color: #fff; }
