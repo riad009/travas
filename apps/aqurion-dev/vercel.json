@@ -1,6 +1,0 @@
-{
-  "buildCommand": "cd ../.. && npx turbo run build --filter=aqurion-dev",
-  "outputDirectory": ".next",
-  "installCommand": "cd ../.. && npm install",
-  "framework": "nextjs"
-}

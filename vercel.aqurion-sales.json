@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npx turbo run build --filter=aqurion-sales",
+  "outputDirectory": "apps/aqurion-sales/.next",
+  "installCommand": "npm install",
+  "framework": "nextjs"
+}
