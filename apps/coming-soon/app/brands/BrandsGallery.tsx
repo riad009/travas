@@ -43,7 +43,11 @@ function BrandCard({ brand }: { brand: (typeof AQURION_BRANDS)[0] }) {
           color: brand.accentColor,
         }}
       >
-        {brand.icon}
+        {brand.logoUrl ? (
+          <img src={brand.logoUrl} alt="" style={{ width: 24, height: 24, borderRadius: 6, objectFit: "contain" }} />
+        ) : (
+          <span style={{ fontSize: "1.2rem" }}>{brand.icon}</span>
+        )}
       </div>
       <div style={{ minWidth: 0 }}>
         <div

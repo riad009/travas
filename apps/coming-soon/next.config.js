@@ -41,51 +41,6 @@ const nextConfig = {
             source: '/docs/:path*',
             destination: 'http://localhost:3001/docs/:path*',
           },
-          // /ai → Aqurion AI
-          {
-            source: '/ai',
-            destination: 'http://localhost:3004/ai',
-          },
-          {
-            source: '/ai/:path*',
-            destination: 'http://localhost:3004/ai/:path*',
-          },
-          // /marketing → Aqurion Marketing
-          {
-            source: '/marketing',
-            destination: 'http://localhost:3005/marketing',
-          },
-          {
-            source: '/marketing/:path*',
-            destination: 'http://localhost:3005/marketing/:path*',
-          },
-          // /sales → Aqurion Sales
-          {
-            source: '/sales',
-            destination: 'http://localhost:3006/sales',
-          },
-          {
-            source: '/sales/:path*',
-            destination: 'http://localhost:3006/sales/:path*',
-          },
-          // /sa → Aqurion South America
-          {
-            source: '/sa',
-            destination: 'http://localhost:3007/sa',
-          },
-          {
-            source: '/sa/:path*',
-            destination: 'http://localhost:3007/sa/:path*',
-          },
-          // /travis → Travis Profile
-          {
-            source: '/travis',
-            destination: 'http://localhost:3008/travis',
-          },
-          {
-            source: '/travis/:path*',
-            destination: 'http://localhost:3008/travis/:path*',
-          },
         ],
       };
     },
