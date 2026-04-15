@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useRef, useCallback } from "react";
-import * as THREE from "three";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { AQURION_BRANDS, getBrandsByTier } from "@repo/ui/brand-config";
 
@@ -132,8 +131,8 @@ export default function HomePage() {
   const [openFaq, setOpenFaq] = React.useState<number | null>(null);
   const [formSent, setFormSent] = React.useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const galaxyCanvasRef = useRef<HTMLCanvasElement>(null);
   const starfieldRef = useRef<HTMLElement>(null);
-  const threeRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: -1, y: -1 });
   const dimRef = useRef({ w: 0, h: 0 });
   const hovIdxRef = useRef<number | null>(null);
@@ -144,262 +143,182 @@ export default function HomePage() {
   const featuredOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const featuredY = useTransform(scrollYProgress, [0, 0.3], [0, 80]);
 
-  /* ── Three.js Galaxy/Nebula Background ── */
+  /* ── Procedural Galaxy / Nebula Background (rendered once) ── */
   useEffect(() => {
-    const container = threeRef.current; if (!container) return;
-    const W = container.offsetWidth, H = container.offsetHeight;
+    const gc = galaxyCanvasRef.current; if (!gc) return;
+    const gctx = gc.getContext("2d"); if (!gctx) return;
+    const dpr = window.devicePixelRatio || 1;
+    const W = gc.offsetWidth, H = gc.offsetHeight;
+    gc.width = W * dpr; gc.height = H * dpr;
+    gctx.scale(dpr, dpr);
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, W / H, 0.1, 1000);
-    camera.position.z = 5;
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x010208);
-    container.appendChild(renderer.domElement);
-
-    const galaxyGroup = new THREE.Group();
-    scene.add(galaxyGroup);
-
-    // ── 1. Nebula ring particles (Helix ring) ──
-    const ringCount = 60000;
-    const ringGeo = new THREE.BufferGeometry();
-    const ringPos = new Float32Array(ringCount * 3);
-    const ringCol = new Float32Array(ringCount * 3);
-    const ringSz = new Float32Array(ringCount);
-    const ringRadius = 2.2;
-    const ringThick = 0.6;
-
-    for (let i = 0; i < ringCount; i++) {
-      const angle = Math.random() * Math.PI * 2;
-      const r = ringRadius + (Math.random() - 0.5) * ringThick * 2;
-      const jitter = (Math.random() - 0.5) * ringThick * 1.2;
-      ringPos[i * 3] = Math.cos(angle) * r * 1.15 + (Math.random() - 0.5) * 0.15;
-      ringPos[i * 3 + 1] = Math.sin(angle) * r * 0.85 + (Math.random() - 0.5) * 0.15;
-      ringPos[i * 3 + 2] = jitter * 0.3;
-
-      // Color: gold/amber/orange
-      const hue = Math.random();
-      if (hue < 0.35) { ringCol[i*3]=0.92+Math.random()*0.08; ringCol[i*3+1]=0.7+Math.random()*0.15; ringCol[i*3+2]=0.15+Math.random()*0.15; }
-      else if (hue < 0.65) { ringCol[i*3]=0.85+Math.random()*0.15; ringCol[i*3+1]=0.5+Math.random()*0.2; ringCol[i*3+2]=0.08+Math.random()*0.1; }
-      else { ringCol[i*3]=0.7+Math.random()*0.25; ringCol[i*3+1]=0.25+Math.random()*0.2; ringCol[i*3+2]=0.04+Math.random()*0.08; }
-
-      ringSz[i] = 1.5 + Math.random() * 4;
+    // --- Noise helper ---
+    function noise2D(x: number, y: number): number {
+      const n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
+      return n - Math.floor(n);
     }
-    ringGeo.setAttribute('position', new THREE.BufferAttribute(ringPos, 3));
-    ringGeo.setAttribute('color', new THREE.BufferAttribute(ringCol, 3));
-    ringGeo.setAttribute('size', new THREE.BufferAttribute(ringSz, 1));
-
-    const ringMat = new THREE.ShaderMaterial({
-      vertexShader: `
-        attribute float size;
-        varying vec3 vColor;
-        void main() {
-          vColor = color;
-          vec4 mv = modelViewMatrix * vec4(position, 1.0);
-          gl_PointSize = size * (300.0 / -mv.z);
-          gl_Position = projectionMatrix * mv;
-        }
-      `,
-      fragmentShader: `
-        varying vec3 vColor;
-        void main() {
-          float d = length(gl_PointCoord - vec2(0.5));
-          if (d > 0.5) discard;
-          float alpha = smoothstep(0.5, 0.1, d);
-          gl_FragColor = vec4(vColor, alpha * 0.7);
-        }
-      `,
-      vertexColors: true,
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-    });
-    const ringPoints = new THREE.Points(ringGeo, ringMat);
-    galaxyGroup.add(ringPoints);
-
-    // ── 2. Gas clouds (reddish-brown outer wisps) ──
-    const gasCount = 15000;
-    const gasGeo = new THREE.BufferGeometry();
-    const gasPos = new Float32Array(gasCount * 3);
-    const gasCol = new Float32Array(gasCount * 3);
-    const gasSz = new Float32Array(gasCount);
-    for (let i = 0; i < gasCount; i++) {
-      const angle = Math.random() * Math.PI * 2;
-      const r = 1.5 + Math.random() * 3.5;
-      gasPos[i*3] = Math.cos(angle) * r * (0.7 + Math.random() * 0.6);
-      gasPos[i*3+1] = Math.sin(angle) * r * (0.7 + Math.random() * 0.6);
-      gasPos[i*3+2] = (Math.random() - 0.5) * 0.8;
-      gasCol[i*3] = 0.3 + Math.random() * 0.35;
-      gasCol[i*3+1] = 0.06 + Math.random() * 0.1;
-      gasCol[i*3+2] = 0.02 + Math.random() * 0.06;
-      gasSz[i] = 3 + Math.random() * 12;
+    function smoothNoise(x: number, y: number): number {
+      const ix = Math.floor(x), iy = Math.floor(y);
+      const fx = x - ix, fy = y - iy;
+      const sx = fx * fx * (3 - 2 * fx), sy = fy * fy * (3 - 2 * fy);
+      const n00 = noise2D(ix, iy), n10 = noise2D(ix+1, iy);
+      const n01 = noise2D(ix, iy+1), n11 = noise2D(ix+1, iy+1);
+      return (n00*(1-sx)+n10*sx)*(1-sy) + (n01*(1-sx)+n11*sx)*sy;
     }
-    gasGeo.setAttribute('position', new THREE.BufferAttribute(gasPos, 3));
-    gasGeo.setAttribute('color', new THREE.BufferAttribute(gasCol, 3));
-    gasGeo.setAttribute('size', new THREE.BufferAttribute(gasSz, 1));
-    const gasMat = new THREE.ShaderMaterial({
-      vertexShader: `
-        attribute float size;
-        varying vec3 vColor;
-        void main() {
-          vColor = color;
-          vec4 mv = modelViewMatrix * vec4(position, 1.0);
-          gl_PointSize = size * (300.0 / -mv.z);
-          gl_Position = projectionMatrix * mv;
-        }
-      `,
-      fragmentShader: `
-        varying vec3 vColor;
-        void main() {
-          float d = length(gl_PointCoord - vec2(0.5));
-          if (d > 0.5) discard;
-          float alpha = smoothstep(0.5, 0.0, d) * 0.15;
-          gl_FragColor = vec4(vColor, alpha);
-        }
-      `,
-      vertexColors: true,
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-    });
-    galaxyGroup.add(new THREE.Points(gasGeo, gasMat));
+    function fbm(x: number, y: number, octaves: number): number {
+      let val = 0, amp = 0.5, freq = 1;
+      for (let i = 0; i < octaves; i++) {
+        val += amp * smoothNoise(x * freq, y * freq);
+        amp *= 0.5; freq *= 2;
+      }
+      return val;
+    }
 
-    // ── 3. Background stars ──
-    const starCount = 5000;
-    const starGeo = new THREE.BufferGeometry();
-    const starPos = new Float32Array(starCount * 3);
-    const starSz = new Float32Array(starCount);
+    // --- 1. Deep space base ---
+    gctx.fillStyle = '#020410';
+    gctx.fillRect(0, 0, W, H);
+
+    // --- 2. Nebula clouds (multiple layers) ---
+    const nebulaLayers = [
+      { color: [90, 40, 180], scale: 2.5, opacity: 0.12, ox: 0, oy: 0 },      // Deep purple
+      { color: [200, 50, 120], scale: 3.2, opacity: 0.09, ox: 50, oy: 30 },   // Magenta/pink
+      { color: [30, 100, 200], scale: 2.8, opacity: 0.10, ox: -30, oy: 20 },  // Blue
+      { color: [20, 180, 180], scale: 4.0, opacity: 0.07, ox: 80, oy: -40 },  // Teal
+      { color: [220, 80, 60], scale: 3.5, opacity: 0.05, ox: -60, oy: 50 },   // Red/orange
+      { color: [140, 60, 220], scale: 2.0, opacity: 0.08, ox: 20, oy: -20 },  // Violet
+    ];
+
+    const nebulaImg = gctx.createImageData(W, H);
+    for (let py = 0; py < H; py++) {
+      for (let px = 0; px < W; px++) {
+        const idx = (py * W + px) * 4;
+        let r = 2, g = 4, b = 16; // base deep space
+
+        // Milky Way band — a bright elongated band across the center
+        const cx = W / 2, cy = H / 2;
+        const dx = (px - cx) / (W * 0.55);
+        const dy = (py - cy) / (H * 0.22);
+        const bandAngle = -0.15; // slight tilt
+        const rx = dx * Math.cos(bandAngle) - dy * Math.sin(bandAngle);
+        const ry = dx * Math.sin(bandAngle) + dy * Math.cos(bandAngle);
+        const bandDist = Math.sqrt(rx*rx + ry*ry);
+        const bandIntensity = Math.max(0, 1 - bandDist) * Math.max(0, 1 - bandDist);
+
+        // Noise-modulated milky way
+        const mwNoise = fbm(px * 0.003 + 100, py * 0.006 + 100, 5);
+        const mwBright = bandIntensity * (0.5 + mwNoise * 0.8);
+
+        // Milky Way colors (warm white-blue core)
+        r += mwBright * 80;
+        g += mwBright * 75;
+        b += mwBright * 110;
+
+        // Nebula color layers
+        for (const layer of nebulaLayers) {
+          const nx = (px + layer.ox) * layer.scale / W;
+          const ny = (py + layer.oy) * layer.scale / H;
+          const n = fbm(nx * 8 + layer.ox * 0.01, ny * 8 + layer.oy * 0.01, 5);
+          const intensity = Math.pow(Math.max(0, n - 0.3) / 0.7, 1.5) * layer.opacity;
+          // Stronger near the band
+          const bandBoost = 1 + bandIntensity * 2.5;
+          r += layer.color[0]! * intensity * bandBoost;
+          g += layer.color[1]! * intensity * bandBoost;
+          b += layer.color[2]! * intensity * bandBoost;
+        }
+
+        // Subtle vignette (darken edges)
+        const vx = (px / W - 0.5) * 2, vy = (py / H - 0.5) * 2;
+        const vignette = 1 - Math.pow(Math.sqrt(vx*vx + vy*vy) * 0.7, 2);
+        r *= vignette; g *= vignette; b *= vignette;
+
+        nebulaImg.data[idx] = Math.min(255, Math.max(0, Math.round(r)));
+        nebulaImg.data[idx+1] = Math.min(255, Math.max(0, Math.round(g)));
+        nebulaImg.data[idx+2] = Math.min(255, Math.max(0, Math.round(b)));
+        nebulaImg.data[idx+3] = 255;
+      }
+    }
+    gctx.putImageData(nebulaImg, 0, 0);
+
+    // --- 3. Dense starfield ---
+    const starCount = 2500;
+    const rng = (seed: number) => {
+      let s = seed;
+      return () => { s = (s * 16807 + 0) % 2147483647; return s / 2147483647; };
+    };
+    const rand = rng(12345);
+
     for (let i = 0; i < starCount; i++) {
-      starPos[i*3] = (Math.random() - 0.5) * 20;
-      starPos[i*3+1] = (Math.random() - 0.5) * 20;
-      starPos[i*3+2] = (Math.random() - 0.5) * 10 - 2;
-      starSz[i] = 0.5 + Math.random() * 2;
+      const sx = rand() * W, sy = rand() * H;
+      const size = rand() < 0.05 ? 1.5 + rand() * 1.5 : 0.3 + rand() * 1.0;
+
+      // Stars near the milky way band are denser/brighter
+      const sdx = (sx - W/2) / (W * 0.55);
+      const sdy = (sy - H/2) / (H * 0.22);
+      const srx = sdx * Math.cos(-0.15) - sdy * Math.sin(-0.15);
+      const sry = sdx * Math.sin(-0.15) + sdy * Math.cos(-0.15);
+      const sBand = Math.max(0, 1 - Math.sqrt(srx*srx + sry*sry));
+
+      // Star color variation
+      const colorRoll = rand();
+      let sr: number, sg: number, sb: number;
+      if (colorRoll < 0.1) { sr = 180; sg = 200; sb = 255; }        // Blue-white
+      else if (colorRoll < 0.15) { sr = 255; sg = 200; sb = 150; }  // Warm yellow
+      else if (colorRoll < 0.18) { sr = 255; sg = 150; sb = 120; }  // Orange
+      else if (colorRoll < 0.2) { sr = 200; sg = 220; sb = 255; }   // Ice blue
+      else { sr = 255; sg = 255; sb = 255; }                        // White
+
+      const brightness = 0.4 + rand() * 0.6 + sBand * 0.4;
+
+      // Glow for brighter stars
+      if (size > 1.2) {
+        const glowR = size * 4;
+        const grd = gctx.createRadialGradient(sx, sy, 0, sx, sy, glowR);
+        grd.addColorStop(0, `rgba(${sr},${sg},${sb},${0.3 * brightness})`);
+        grd.addColorStop(1, 'transparent');
+        gctx.fillStyle = grd;
+        gctx.beginPath(); gctx.arc(sx, sy, glowR, 0, Math.PI * 2); gctx.fill();
+      }
+
+      gctx.beginPath(); gctx.arc(sx, sy, size, 0, Math.PI * 2);
+      gctx.fillStyle = `rgba(${sr},${sg},${sb},${brightness})`;
+      gctx.fill();
     }
-    starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
-    starGeo.setAttribute('size', new THREE.BufferAttribute(starSz, 1));
-    const starMat = new THREE.ShaderMaterial({
-      vertexShader: `
-        attribute float size;
-        void main() {
-          vec4 mv = modelViewMatrix * vec4(position, 1.0);
-          gl_PointSize = size * (200.0 / -mv.z);
-          gl_Position = projectionMatrix * mv;
-        }
-      `,
-      fragmentShader: `
-        void main() {
-          float d = length(gl_PointCoord - vec2(0.5));
-          if (d > 0.5) discard;
-          float alpha = smoothstep(0.5, 0.0, d);
-          gl_FragColor = vec4(1.0, 1.0, 1.0, alpha * 0.6);
-        }
-      `,
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-    });
-    scene.add(new THREE.Points(starGeo, starMat));
 
-    // ── 4. Bright blue stars ──
-    const blueCount = 20;
-    const blueGeo = new THREE.BufferGeometry();
-    const bluePos = new Float32Array(blueCount * 3);
-    const blueSz = new Float32Array(blueCount);
-    const blueCol = new Float32Array(blueCount * 3);
-    for (let i = 0; i < blueCount; i++) {
-      bluePos[i*3] = (Math.random() - 0.5) * 12;
-      bluePos[i*3+1] = (Math.random() - 0.5) * 8;
-      bluePos[i*3+2] = (Math.random() - 0.5) * 2 - 1;
-      blueSz[i] = 6 + Math.random() * 10;
-      blueCol[i*3] = 0.4 + Math.random() * 0.2;
-      blueCol[i*3+1] = 0.6 + Math.random() * 0.2;
-      blueCol[i*3+2] = 0.9 + Math.random() * 0.1;
+    // --- 4. Extra dense star clusters along the milky way ---
+    for (let i = 0; i < 800; i++) {
+      const angle = -0.15 + (rand() - 0.5) * 0.3;
+      const dist = rand() * 0.4;
+      const along = (rand() - 0.5) * 1.8;
+      const sx = W/2 + along * W * 0.45 * Math.cos(angle) - dist * H * 0.15 * Math.sin(angle);
+      const sy = H/2 + along * W * 0.45 * Math.sin(angle) + dist * H * 0.15 * Math.cos(angle);
+      if (sx < 0 || sx > W || sy < 0 || sy > H) continue;
+      const size = 0.2 + rand() * 0.6;
+      const brightness = 0.3 + rand() * 0.7;
+      gctx.beginPath(); gctx.arc(sx, sy, size, 0, Math.PI * 2);
+      gctx.fillStyle = `rgba(220,225,255,${brightness})`;
+      gctx.fill();
     }
-    blueGeo.setAttribute('position', new THREE.BufferAttribute(bluePos, 3));
-    blueGeo.setAttribute('size', new THREE.BufferAttribute(blueSz, 1));
-    blueGeo.setAttribute('color', new THREE.BufferAttribute(blueCol, 3));
-    const blueMat = new THREE.ShaderMaterial({
-      vertexShader: `
-        attribute float size;
-        varying vec3 vColor;
-        void main() {
-          vColor = color;
-          vec4 mv = modelViewMatrix * vec4(position, 1.0);
-          gl_PointSize = size * (300.0 / -mv.z);
-          gl_Position = projectionMatrix * mv;
-        }
-      `,
-      fragmentShader: `
-        varying vec3 vColor;
-        void main() {
-          float d = length(gl_PointCoord - vec2(0.5));
-          if (d > 0.5) discard;
-          float glow = exp(-d * 4.0);
-          float core = smoothstep(0.15, 0.0, d);
-          vec3 col = mix(vColor, vec3(1.0), core);
-          float alpha = glow * 0.6 + core * 0.8;
-          gl_FragColor = vec4(col, alpha);
-        }
-      `,
-      vertexColors: true,
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-    });
-    scene.add(new THREE.Points(blueGeo, blueMat));
 
-    // ── 5. Center void (dark sphere) ──
-    const voidGeo = new THREE.SphereGeometry(1.1, 32, 32);
-    const voidMat = new THREE.MeshBasicMaterial({ color: 0x010208, transparent: true, opacity: 0.85 });
-    const voidMesh = new THREE.Mesh(voidGeo, voidMat);
-    voidMesh.scale.set(1.15, 0.85, 0.3);
-    galaxyGroup.add(voidMesh);
-
-    // Mouse tracking for parallax
-    const mousePos = { x: 0, y: 0 };
-    const onMouse = (e: MouseEvent) => {
-      mousePos.x = (e.clientX / W - 0.5) * 2;
-      mousePos.y = (e.clientY / H - 0.5) * 2;
-    };
-    window.addEventListener('mousemove', onMouse);
-
-    // Animation
-    let threeAnim: number;
-    const clock = new THREE.Clock();
-    function animate() {
-      threeAnim = requestAnimationFrame(animate);
-      const elapsed = clock.getElapsedTime();
-      // Subtle galaxy rotation
-      galaxyGroup.rotation.z = elapsed * 0.01;
-      // Mouse parallax
-      camera.position.x += (mousePos.x * 0.3 - camera.position.x) * 0.02;
-      camera.position.y += (-mousePos.y * 0.3 - camera.position.y) * 0.02;
-      camera.lookAt(0, 0, 0);
-      renderer.render(scene, camera);
+    // --- 5. Bright nebula highlight spots ---
+    const highlights = [
+      { x: W*0.3, y: H*0.35, r: W*0.12, color: '120,50,200' },
+      { x: W*0.7, y: H*0.55, r: W*0.10, color: '200,60,130' },
+      { x: W*0.5, y: H*0.45, r: W*0.15, color: '60,120,220' },
+      { x: W*0.2, y: H*0.6, r: W*0.08, color: '40,180,170' },
+      { x: W*0.8, y: H*0.35, r: W*0.09, color: '180,80,200' },
+    ];
+    for (const h of highlights) {
+      const grd = gctx.createRadialGradient(h.x, h.y, 0, h.x, h.y, h.r);
+      grd.addColorStop(0, `rgba(${h.color},0.08)`);
+      grd.addColorStop(0.5, `rgba(${h.color},0.03)`);
+      grd.addColorStop(1, 'transparent');
+      gctx.fillStyle = grd;
+      gctx.beginPath(); gctx.arc(h.x, h.y, h.r, 0, Math.PI * 2); gctx.fill();
     }
-    animate();
 
-    const onResize = () => {
-      const w = container.offsetWidth, h = container.offsetHeight;
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-      renderer.setSize(w, h);
-    };
-    window.addEventListener('resize', onResize);
-
-    return () => {
-      cancelAnimationFrame(threeAnim);
-      window.removeEventListener('mousemove', onMouse);
-      window.removeEventListener('resize', onResize);
-      renderer.dispose();
-      container.removeChild(renderer.domElement);
-    };
   }, []);
 
-
-  /* ── Canvas: company nodes only (galaxy is CSS bg image) ── */
+  /* ── Canvas: company nodes (interactive layer) ── */
   useEffect(() => {
     const c = canvasRef.current; if (!c) return;
     const ctx = c.getContext("2d"); if (!ctx) return;
@@ -491,7 +410,6 @@ export default function HomePage() {
       W = c.offsetWidth; H = c.offsetHeight;
       c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       dimRef.current = { w: W, h: H };
-      // resize handled
     };
 
     c.addEventListener("mousemove", onMove);
@@ -517,21 +435,10 @@ export default function HomePage() {
         .hq-nav a:hover{background:#fff;color:#000;}
 
         /* FULL-SCREEN STARFIELD HERO */
-        .hq-starfield{position:relative;width:100%;height:100vh;overflow:hidden;
-          background:
-            radial-gradient(ellipse 40% 35% at 50% 50%, rgba(2,3,12,0.97) 0%, transparent 100%),
-            radial-gradient(ellipse 52% 48% at 50% 50%, rgba(212,175,55,0.1) 30%, rgba(180,100,20,0.06) 60%, transparent 100%),
-            radial-gradient(ellipse 58% 52% at 50% 50%, transparent 35%, rgba(200,140,30,0.08) 45%, rgba(160,80,15,0.05) 55%, transparent 70%),
-            radial-gradient(ellipse 70% 65% at 50% 50%, transparent 50%, rgba(120,40,15,0.06) 65%, rgba(80,20,10,0.04) 80%, transparent 100%),
-            radial-gradient(ellipse 85% 80% at 48% 52%, transparent 55%, rgba(90,25,12,0.05) 70%, rgba(50,12,8,0.03) 85%, transparent 100%),
-            radial-gradient(circle at 22% 30%, rgba(80,150,240,0.06) 0%, transparent 25%),
-            radial-gradient(circle at 80% 35%, rgba(80,150,240,0.05) 0%, transparent 22%),
-            radial-gradient(circle at 15% 65%, rgba(60,120,220,0.04) 0%, transparent 18%),
-            radial-gradient(circle at 85% 70%, rgba(60,120,220,0.04) 0%, transparent 20%),
-            radial-gradient(circle at 35% 15%, rgba(70,140,230,0.03) 0%, transparent 15%),
-            radial-gradient(circle at 70% 85%, rgba(70,140,230,0.03) 0%, transparent 15%),
-            #020408;}
+        .hq-starfield{position:relative;width:100%;height:100vh;overflow:hidden;background:#020410;}
         .hq-starfield canvas{position:absolute;inset:0;width:100%;height:100%;}
+        .hq-starfield .galaxy-bg{z-index:0;}
+        .hq-starfield .nodes-layer{z-index:1;}
         /* Featured cards at bottom of starfield */
         .hq-featured{position:absolute;bottom:3rem;left:0;right:0;z-index:3;display:flex;gap:1rem;padding:0 3rem;overflow-x:auto;scrollbar-width:none;}
         .hq-featured::-webkit-scrollbar{display:none;}
@@ -654,8 +561,8 @@ export default function HomePage() {
 
         {/* ═══ FULL-SCREEN STARFIELD — scroll to reveal ═══ */}
         <section id="constellation" ref={starfieldRef} className="hq-starfield">
-          <div ref={threeRef} className="hq-three-bg" />
-          <canvas ref={canvasRef} />
+          <canvas ref={galaxyCanvasRef} className="galaxy-bg" />
+          <canvas ref={canvasRef} className="nodes-layer" />
         </section>
 
         {/* ═══ MODAL ═══ */}

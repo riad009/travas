@@ -307,12 +307,12 @@ export default function AIPage() {
                 <motion.div key={activeSector} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }}>
                   <div className="ai-sector-detail">
                     <div className="ai-sector-header">
-                      <span className="ai-sector-icon-lg">{sectors[activeSector].icon}</span>
-                      <span className="ai-sector-name" style={{ color: sectors[activeSector].color }}>{sectors[activeSector].name}</span>
+                      <span className="ai-sector-icon-lg">{sectors[activeSector]?.icon}</span>
+                      <span className="ai-sector-name" style={{ color: sectors[activeSector]?.color }}>{sectors[activeSector]?.name}</span>
                     </div>
-                    <p className="ai-sector-desc">{sectors[activeSector].desc}</p>
+                    <p className="ai-sector-desc">{sectors[activeSector]?.desc}</p>
                     <div className="ai-apps-grid">
-                      {sectors[activeSector].apps.map((app, j) => (
+                      {sectors[activeSector]?.apps.map((app, j) => (
                         <div key={app.name} className="ai-app">
                           <div className="ai-app-name">{app.name}</div>
                           <div className="ai-app-desc">{app.desc}</div>
