@@ -29,7 +29,7 @@ export interface BrandConfig {
   };
 }
 
-export const AQURION_BRANDS: BrandConfig[] = [
+const RAW_AQURION_BRANDS: BrandConfig[] = [
   // â”€â”€ PHASE 1 / ONGOING (Tier 1 & 2) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   { id: "aqurion-holdings", name: "Aqurion Holdings", tagline: "Where the Spark Starts.", description: "Aqurion Holdings serves as the strategic parent company responsible for guiding the development, expansion, and integration of the Aqurion technology ecosystem.", domain: "Aqurion.NET", buildPriority: "ongoing", buildType: "full-site", logoUrl: "/logos/aqurion-holdings-icon.png", tier: 1, category: "Corporate", accentColor: "#6C63FF", gradient: "linear-gradient(135deg, #0F0C29 0%, #302B63 50%, #24243E 100%)", icon: "â—ˆ", notes: "Home, Contact, About, Link to all subs, Blog, AI news Feed, employment, FAQ", referenceUrl: "https://www.expa.com/" },
   { id: "aqurion-ai", name: "Aqurion AI", tagline: "Intelligence, Illuminated.", description: "Aqurion AI delivers cutting-edge artificial intelligence solutions that transform businesses.", domain: "Aqurion.AI", buildPriority: "ongoing", buildType: "full-site", logoUrl: "/logos/aqurion-ai-icon.png", tier: 1, category: "Technology", accentColor: "#00D4FF", gradient: "linear-gradient(135deg, #000428 0%, #004E92 100%)", icon: "â—Ž", notes: "Click to see sectors and applications.", referenceUrl: "https://human.capital/" },
@@ -140,6 +140,11 @@ export const AQURION_BRANDS: BrandConfig[] = [
   { id: "aqurion-designsuite", name: "Aqurion DesignSuite", tagline: "Web, graphic, content creation.", description: "Design firm software.", domain: "TBD", buildPriority: "level3", buildType: "landing", logoUrl: "/logos/aqurion-designsuite-icon.png", tier: 3, category: "Creative", icon: "ðŸŽ¨", accentColor: "#A855F7", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "" },
   { id: "aqurion-movieperformancepro", name: "Aqurion MoviePerformancePro", tagline: "Movie, concert, theater management.", description: "Theater software.", domain: "TBD", buildPriority: "level3", buildType: "landing", logoUrl: "/logos/aqurion-movieperformancepro-icon.png", tier: 3, category: "Creative", icon: "ðŸŽ¬", accentColor: "#A855F7", gradient: "linear-gradient(135deg, 0x0 0%, 0x0 100%)", referenceUrl: "https://www.cinesync.io/" }
 ];
+
+export const AQURION_BRANDS: BrandConfig[] = RAW_AQURION_BRANDS.map((brand) => ({
+  ...brand,
+  logoUrl: `/logos/ai-logo/${brand.id}-bulb.svg`,
+}));
 
 export function getBrandById(id: string): BrandConfig | undefined {
   return AQURION_BRANDS.find((b) => b.id === id);

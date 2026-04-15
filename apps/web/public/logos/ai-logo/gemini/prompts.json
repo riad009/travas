@@ -1,0 +1,555 @@
+[
+  {
+    "id": "aqurion-holdings",
+    "name": "Aqurion Holdings",
+    "category": "Corporate",
+    "accentColor": "#6C63FF",
+    "prompt": "Create one premium AI-generated logo for Aqurion Holdings. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #6C63FF accents. The brand sector is Corporate. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-ai",
+    "name": "Aqurion AI",
+    "category": "Technology",
+    "accentColor": "#00D4FF",
+    "prompt": "Create one premium AI-generated logo for Aqurion AI. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #00D4FF accents. The brand sector is Technology. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-marketing",
+    "name": "Aqurion Marketing",
+    "category": "Marketing",
+    "accentColor": "#FF6B6B",
+    "prompt": "Create one premium AI-generated logo for Aqurion Marketing. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #FF6B6B accents. The brand sector is Marketing. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-financial",
+    "name": "Aqurion Financial",
+    "category": "Finance",
+    "accentColor": "#4ECDC4",
+    "prompt": "Create one premium AI-generated logo for Aqurion Financial. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #4ECDC4 accents. The brand sector is Finance. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-directory",
+    "name": "Aqurion Directory",
+    "category": "Directory",
+    "accentColor": "#A78BFA",
+    "prompt": "Create one premium AI-generated logo for Aqurion Directory. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #A78BFA accents. The brand sector is Directory. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-stores",
+    "name": "Aqurion Stores",
+    "category": "Commerce",
+    "accentColor": "#F59E0B",
+    "prompt": "Create one premium AI-generated logo for Aqurion Stores. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F59E0B accents. The brand sector is Commerce. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-sales",
+    "name": "Aqurion Sales",
+    "category": "Sales",
+    "accentColor": "#10B981",
+    "prompt": "Create one premium AI-generated logo for Aqurion Sales. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #10B981 accents. The brand sector is Sales. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-dev",
+    "name": "Aqurion Development",
+    "category": "Technology",
+    "accentColor": "#00FF88",
+    "prompt": "Create one premium AI-generated logo for Aqurion Development. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #00FF88 accents. The brand sector is Technology. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-sa",
+    "name": "Aqurion South America",
+    "category": "Regional",
+    "accentColor": "#FFD700",
+    "prompt": "Create one premium AI-generated logo for Aqurion South America. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #FFD700 accents. The brand sector is Regional. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "travis-roque-soto",
+    "name": "ExExecutive Profile",
+    "category": "Personal",
+    "accentColor": "#F5A623",
+    "prompt": "Create one premium AI-generated logo for ExExecutive Profile. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F5A623 accents. The brand sector is Personal. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-ps",
+    "name": "Aqurion Property Services",
+    "category": "Real Estate",
+    "accentColor": "#3B82F6",
+    "prompt": "Create one premium AI-generated logo for Aqurion Property Services. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #3B82F6 accents. The brand sector is Real Estate. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-hospitality",
+    "name": "Aqurion Food & Hospitality",
+    "category": "Hospitality",
+    "accentColor": "#D97706",
+    "prompt": "Create one premium AI-generated logo for Aqurion Food & Hospitality. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #D97706 accents. The brand sector is Hospitality. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-home",
+    "name": "Aqurion Home Services",
+    "category": "Home Services",
+    "accentColor": "#F97316",
+    "prompt": "Create one premium AI-generated logo for Aqurion Home Services. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F97316 accents. The brand sector is Home Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-atm",
+    "name": "Aqurion Automotive",
+    "category": "Automotive",
+    "accentColor": "#EF4444",
+    "prompt": "Create one premium AI-generated logo for Aqurion Automotive. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #EF4444 accents. The brand sector is Automotive. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-file",
+    "name": "Aqurion Finance & Legal",
+    "category": "Professional Services",
+    "accentColor": "#8B5CF6",
+    "prompt": "Create one premium AI-generated logo for Aqurion Finance & Legal. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #8B5CF6 accents. The brand sector is Professional Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-leisure",
+    "name": "Aqurion Leisure & Recreation",
+    "category": "Travel",
+    "accentColor": "#06B6D4",
+    "prompt": "Create one premium AI-generated logo for Aqurion Leisure & Recreation. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #06B6D4 accents. The brand sector is Travel. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-travel",
+    "name": "Aqurion TravelSuite",
+    "category": "Travel",
+    "accentColor": "#0EA5E9",
+    "prompt": "Create one premium AI-generated logo for Aqurion TravelSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #0EA5E9 accents. The brand sector is Travel. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-wellness",
+    "name": "Aqurion Beauty, Wellness & Fitness",
+    "category": "Health & Wellness",
+    "accentColor": "#22C55E",
+    "prompt": "Create one premium AI-generated logo for Aqurion Beauty, Wellness & Fitness. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #22C55E accents. The brand sector is Health & Wellness. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-animal",
+    "name": "Aqurion Animal & Veterinary",
+    "category": "Animal Services",
+    "accentColor": "#84CC16",
+    "prompt": "Create one premium AI-generated logo for Aqurion Animal & Veterinary. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #84CC16 accents. The brand sector is Animal Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-services",
+    "name": "Aqurion Security & Utilities",
+    "category": "Security & Municipal",
+    "accentColor": "#64748B",
+    "prompt": "Create one premium AI-generated logo for Aqurion Security & Utilities. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #64748B accents. The brand sector is Security & Municipal. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-burser",
+    "name": "Aqurion Education / Nonprofit / Campaigns",
+    "category": "Education & Non-Profit",
+    "accentColor": "#EC4899",
+    "prompt": "Create one premium AI-generated logo for Aqurion Education / Nonprofit / Campaigns. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #EC4899 accents. The brand sector is Education & Non-Profit. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-rc",
+    "name": "Aqurion Retail & Commerce",
+    "category": "Retail",
+    "accentColor": "#F43F5E",
+    "prompt": "Create one premium AI-generated logo for Aqurion Retail & Commerce. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F43F5E accents. The brand sector is Retail. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-creative",
+    "name": "Aqurion Photography, Creative & Media",
+    "category": "Creative",
+    "accentColor": "#A855F7",
+    "prompt": "Create one premium AI-generated logo for Aqurion Photography, Creative & Media. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #A855F7 accents. The brand sector is Creative. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-propertyflow",
+    "name": "Aqurion PropertyFlow",
+    "category": "Real Estate",
+    "accentColor": "#3B82F6",
+    "prompt": "Create one premium AI-generated logo for Aqurion PropertyFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #3B82F6 accents. The brand sector is Real Estate. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-hoapro",
+    "name": "Aqurion HOAPro",
+    "category": "Real Estate",
+    "accentColor": "#3B82F6",
+    "prompt": "Create one premium AI-generated logo for Aqurion HOAPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #3B82F6 accents. The brand sector is Real Estate. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-hotelsuite",
+    "name": "Aqurion HotelSuite",
+    "category": "Real Estate",
+    "accentColor": "#3B82F6",
+    "prompt": "Create one premium AI-generated logo for Aqurion HotelSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #3B82F6 accents. The brand sector is Real Estate. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-marinasuite",
+    "name": "Aqurion MarinaSuite",
+    "category": "Real Estate",
+    "accentColor": "#3B82F6",
+    "prompt": "Create one premium AI-generated logo for Aqurion MarinaSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #3B82F6 accents. The brand sector is Real Estate. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-parkingflow",
+    "name": "Aqurion ParkingFlow",
+    "category": "Real Estate",
+    "accentColor": "#3B82F6",
+    "prompt": "Create one premium AI-generated logo for Aqurion ParkingFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #3B82F6 accents. The brand sector is Real Estate. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-funeralsuite",
+    "name": "Aqurion FuneralSuite",
+    "category": "Real Estate",
+    "accentColor": "#3B82F6",
+    "prompt": "Create one premium AI-generated logo for Aqurion FuneralSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #3B82F6 accents. The brand sector is Real Estate. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-homeservicessuite",
+    "name": "Aqurion HomeServicesSuite",
+    "category": "Home Services",
+    "accentColor": "#F97316",
+    "prompt": "Create one premium AI-generated logo for Aqurion HomeServicesSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F97316 accents. The brand sector is Home Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-solarpro",
+    "name": "Aqurion SolarPro",
+    "category": "Home Services",
+    "accentColor": "#F97316",
+    "prompt": "Create one premium AI-generated logo for Aqurion SolarPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F97316 accents. The brand sector is Home Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-contractingplus",
+    "name": "Aqurion ContractingPlus",
+    "category": "Home Services",
+    "accentColor": "#F97316",
+    "prompt": "Create one premium AI-generated logo for Aqurion ContractingPlus. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F97316 accents. The brand sector is Home Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-autosuite",
+    "name": "Aqurion AutoSuite",
+    "category": "Automotive",
+    "accentColor": "#EF4444",
+    "prompt": "Create one premium AI-generated logo for Aqurion AutoSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #EF4444 accents. The brand sector is Automotive. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-towsuite",
+    "name": "Aqurion TowSuite",
+    "category": "Automotive",
+    "accentColor": "#EF4444",
+    "prompt": "Create one premium AI-generated logo for Aqurion TowSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #EF4444 accents. The brand sector is Automotive. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-motorsone",
+    "name": "Aqurion MotorsOne",
+    "category": "Automotive",
+    "accentColor": "#EF4444",
+    "prompt": "Create one premium AI-generated logo for Aqurion MotorsOne. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #EF4444 accents. The brand sector is Automotive. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-legalone",
+    "name": "Aqurion LegalOne",
+    "category": "Professional Services",
+    "accentColor": "#8B5CF6",
+    "prompt": "Create one premium AI-generated logo for Aqurion LegalOne. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #8B5CF6 accents. The brand sector is Professional Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-financeflow",
+    "name": "Aqurion FinanceFlow",
+    "category": "Professional Services",
+    "accentColor": "#8B5CF6",
+    "prompt": "Create one premium AI-generated logo for Aqurion FinanceFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #8B5CF6 accents. The brand sector is Professional Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-escrowsuite",
+    "name": "Aqurion EscrowSuite",
+    "category": "Professional Services",
+    "accentColor": "#8B5CF6",
+    "prompt": "Create one premium AI-generated logo for Aqurion EscrowSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #8B5CF6 accents. The brand sector is Professional Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-collectionagencysuite",
+    "name": "Aqurion CollectionAgencySuite",
+    "category": "Professional Services",
+    "accentColor": "#8B5CF6",
+    "prompt": "Create one premium AI-generated logo for Aqurion CollectionAgencySuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #8B5CF6 accents. The brand sector is Professional Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-clubmanager",
+    "name": "Aqurion ClubManager",
+    "category": "Travel",
+    "accentColor": "#06B6D4",
+    "prompt": "Create one premium AI-generated logo for Aqurion ClubManager. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #06B6D4 accents. The brand sector is Travel. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-skiresortflow",
+    "name": "Aqurion SkiResortFlow",
+    "category": "Travel",
+    "accentColor": "#06B6D4",
+    "prompt": "Create one premium AI-generated logo for Aqurion SkiResortFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #06B6D4 accents. The brand sector is Travel. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-amusementflow",
+    "name": "Aqurion AmusementFlow",
+    "category": "Travel",
+    "accentColor": "#06B6D4",
+    "prompt": "Create one premium AI-generated logo for Aqurion AmusementFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #06B6D4 accents. The brand sector is Travel. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-salonpro",
+    "name": "Aqurion SalonPro",
+    "category": "Health & Wellness",
+    "accentColor": "#22C55E",
+    "prompt": "Create one premium AI-generated logo for Aqurion SalonPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #22C55E accents. The brand sector is Health & Wellness. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-doggroomingflow",
+    "name": "Aqurion DogGroomingFlow",
+    "category": "Health & Wellness",
+    "accentColor": "#22C55E",
+    "prompt": "Create one premium AI-generated logo for Aqurion DogGroomingFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #22C55E accents. The brand sector is Health & Wellness. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-fitnessflow",
+    "name": "Aqurion FitnessFlow",
+    "category": "Health & Wellness",
+    "accentColor": "#22C55E",
+    "prompt": "Create one premium AI-generated logo for Aqurion FitnessFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #22C55E accents. The brand sector is Health & Wellness. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-spasuite",
+    "name": "Aqurion SpaSuite",
+    "category": "Health & Wellness",
+    "accentColor": "#22C55E",
+    "prompt": "Create one premium AI-generated logo for Aqurion SpaSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #22C55E accents. The brand sector is Health & Wellness. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-cosmeticpro",
+    "name": "Aqurion CosmeticPro",
+    "category": "Health & Wellness",
+    "accentColor": "#22C55E",
+    "prompt": "Create one premium AI-generated logo for Aqurion CosmeticPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #22C55E accents. The brand sector is Health & Wellness. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-dentalpro",
+    "name": "Aqurion DentalPro",
+    "category": "Health & Wellness",
+    "accentColor": "#22C55E",
+    "prompt": "Create one premium AI-generated logo for Aqurion DentalPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #22C55E accents. The brand sector is Health & Wellness. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-adjustmentpro",
+    "name": "Aqurion AdjustmentPro",
+    "category": "Health & Wellness",
+    "accentColor": "#22C55E",
+    "prompt": "Create one premium AI-generated logo for Aqurion AdjustmentPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #22C55E accents. The brand sector is Health & Wellness. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-psychpro",
+    "name": "Aqurion PsychPro",
+    "category": "Health & Wellness",
+    "accentColor": "#22C55E",
+    "prompt": "Create one premium AI-generated logo for Aqurion PsychPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #22C55E accents. The brand sector is Health & Wellness. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-medpro",
+    "name": "Aqurion MedPro",
+    "category": "Health & Wellness",
+    "accentColor": "#22C55E",
+    "prompt": "Create one premium AI-generated logo for Aqurion MedPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #22C55E accents. The brand sector is Health & Wellness. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-vetpro",
+    "name": "Aqurion VetPro",
+    "category": "Animal Services",
+    "accentColor": "#84CC16",
+    "prompt": "Create one premium AI-generated logo for Aqurion VetPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #84CC16 accents. The brand sector is Animal Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-breedingsuite",
+    "name": "Aqurion BreedingSuite",
+    "category": "Animal Services",
+    "accentColor": "#84CC16",
+    "prompt": "Create one premium AI-generated logo for Aqurion BreedingSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #84CC16 accents. The brand sector is Animal Services. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-securitymaster",
+    "name": "Aqurion SecurityMaster",
+    "category": "Security & Municipal",
+    "accentColor": "#64748B",
+    "prompt": "Create one premium AI-generated logo for Aqurion SecurityMaster. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #64748B accents. The brand sector is Security & Municipal. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-utilitysuite",
+    "name": "Aqurion UtilitySuite",
+    "category": "Security & Municipal",
+    "accentColor": "#64748B",
+    "prompt": "Create one premium AI-generated logo for Aqurion UtilitySuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #64748B accents. The brand sector is Security & Municipal. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-munisuite",
+    "name": "Aqurion MuniSuite",
+    "category": "Security & Municipal",
+    "accentColor": "#64748B",
+    "prompt": "Create one premium AI-generated logo for Aqurion MuniSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #64748B accents. The brand sector is Security & Municipal. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-fintechlab",
+    "name": "Aqurion Beta Lab",
+    "category": "Education & Career",
+    "accentColor": "#7C3AED",
+    "prompt": "Create one premium AI-generated logo for Aqurion Beta Lab. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #7C3AED accents. The brand sector is Education & Career. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-educationsuite",
+    "name": "Aqurion EducationSuite",
+    "category": "Education & Non-Profit",
+    "accentColor": "#EC4899",
+    "prompt": "Create one premium AI-generated logo for Aqurion EducationSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #EC4899 accents. The brand sector is Education & Non-Profit. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-donorflow",
+    "name": "Aqurion DonorFlow",
+    "category": "Education & Non-Profit",
+    "accentColor": "#EC4899",
+    "prompt": "Create one premium AI-generated logo for Aqurion DonorFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #EC4899 accents. The brand sector is Education & Non-Profit. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-roster",
+    "name": "Aqurion Roster",
+    "category": "Education & Non-Profit",
+    "accentColor": "#EC4899",
+    "prompt": "Create one premium AI-generated logo for Aqurion Roster. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #EC4899 accents. The brand sector is Education & Non-Profit. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-careflow",
+    "name": "Aqurion CareFlow",
+    "category": "Education & Non-Profit",
+    "accentColor": "#EC4899",
+    "prompt": "Create one premium AI-generated logo for Aqurion CareFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #EC4899 accents. The brand sector is Education & Non-Profit. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-restaurantone",
+    "name": "Aqurion RestaurantOne",
+    "category": "Hospitality",
+    "accentColor": "#D97706",
+    "prompt": "Create one premium AI-generated logo for Aqurion RestaurantOne. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #D97706 accents. The brand sector is Hospitality. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-cateringsuite",
+    "name": "Aqurion CateringSuite",
+    "category": "Hospitality",
+    "accentColor": "#D97706",
+    "prompt": "Create one premium AI-generated logo for Aqurion CateringSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #D97706 accents. The brand sector is Hospitality. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-foodtruckpro",
+    "name": "Aqurion FoodTruckPro",
+    "category": "Hospitality",
+    "accentColor": "#D97706",
+    "prompt": "Create one premium AI-generated logo for Aqurion FoodTruckPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #D97706 accents. The brand sector is Hospitality. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-barsuite",
+    "name": "Aqurion BarSuite",
+    "category": "Hospitality",
+    "accentColor": "#D97706",
+    "prompt": "Create one premium AI-generated logo for Aqurion BarSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #D97706 accents. The brand sector is Hospitality. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-winerymanager",
+    "name": "Aqurion WineryManager",
+    "category": "Hospitality",
+    "accentColor": "#D97706",
+    "prompt": "Create one premium AI-generated logo for Aqurion WineryManager. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #D97706 accents. The brand sector is Hospitality. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-weddingplannerpro",
+    "name": "Aqurion WeddingPlannerPro",
+    "category": "Hospitality",
+    "accentColor": "#D97706",
+    "prompt": "Create one premium AI-generated logo for Aqurion WeddingPlannerPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #D97706 accents. The brand sector is Hospitality. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-retailflow",
+    "name": "Aqurion RetailFlow",
+    "category": "Retail",
+    "accentColor": "#F43F5E",
+    "prompt": "Create one premium AI-generated logo for Aqurion RetailFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F43F5E accents. The brand sector is Retail. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-ecommercesuite",
+    "name": "Aqurion EcommerceSuite",
+    "category": "Retail",
+    "accentColor": "#F43F5E",
+    "prompt": "Create one premium AI-generated logo for Aqurion EcommerceSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F43F5E accents. The brand sector is Retail. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-tobaccoliquorpro",
+    "name": "Aqurion TobaccoLiquorPro",
+    "category": "Retail",
+    "accentColor": "#F43F5E",
+    "prompt": "Create one premium AI-generated logo for Aqurion TobaccoLiquorPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F43F5E accents. The brand sector is Retail. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-jewelrysuite",
+    "name": "Aqurion JewelrySuite",
+    "category": "Retail",
+    "accentColor": "#F43F5E",
+    "prompt": "Create one premium AI-generated logo for Aqurion JewelrySuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F43F5E accents. The brand sector is Retail. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-pawnshoppro",
+    "name": "Aqurion PawnShopPro",
+    "category": "Retail",
+    "accentColor": "#F43F5E",
+    "prompt": "Create one premium AI-generated logo for Aqurion PawnShopPro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F43F5E accents. The brand sector is Retail. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-printsignmaster",
+    "name": "Aqurion PrintSignMaster",
+    "category": "Retail",
+    "accentColor": "#F43F5E",
+    "prompt": "Create one premium AI-generated logo for Aqurion PrintSignMaster. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F43F5E accents. The brand sector is Retail. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-staffingmaster",
+    "name": "Aqurion StaffingMaster",
+    "category": "Retail",
+    "accentColor": "#F43F5E",
+    "prompt": "Create one premium AI-generated logo for Aqurion StaffingMaster. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F43F5E accents. The brand sector is Retail. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-fleetflow",
+    "name": "Aqurion FleetFlow",
+    "category": "Retail",
+    "accentColor": "#F43F5E",
+    "prompt": "Create one premium AI-generated logo for Aqurion FleetFlow. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F43F5E accents. The brand sector is Retail. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-enterprise",
+    "name": "Aqurion Enterprise",
+    "category": "Retail",
+    "accentColor": "#F43F5E",
+    "prompt": "Create one premium AI-generated logo for Aqurion Enterprise. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #F43F5E accents. The brand sector is Retail. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-photographermaster",
+    "name": "Aqurion PhotographerMaster",
+    "category": "Creative",
+    "accentColor": "#A855F7",
+    "prompt": "Create one premium AI-generated logo for Aqurion PhotographerMaster. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #A855F7 accents. The brand sector is Creative. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-designsuite",
+    "name": "Aqurion DesignSuite",
+    "category": "Creative",
+    "accentColor": "#A855F7",
+    "prompt": "Create one premium AI-generated logo for Aqurion DesignSuite. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #A855F7 accents. The brand sector is Creative. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  },
+  {
+    "id": "aqurion-movieperformancepro",
+    "name": "Aqurion MoviePerformancePro",
+    "category": "Creative",
+    "accentColor": "#A855F7",
+    "prompt": "Create one premium AI-generated logo for Aqurion MoviePerformancePro. The design MUST stay inside the same glossy blue light bulb concept as the reference image. Keep the overall bulb silhouette consistent across the brand family. Use a white or very light central mark plus subtle #A855F7 accents. The brand sector is Creative. Suggest the iconography from that sector while staying minimal and luxury-tech. Make it clean, vector-style, centered, transparent background outside the bulb, square composition, no mockup, no extra scenery."
+  }
+]

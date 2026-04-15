@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>Aqurion FuneralSuite bulb logo</title>
+  <desc>Blue Aqurion light bulb style logo for Aqurion FuneralSuite.</desc>
+  <defs>
+    <linearGradient id="bulbBlue" x1="120" y1="50" x2="392" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="0.38" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#020C5A"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(214 120) rotate(52) scale(160 146)">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="accentGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 220) rotate(90) scale(140 140)">
+      <stop offset="0" stop-color="#3B82F6" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="70" y="18" width="372" height="460" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#02103F" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <path d="M256 42c-80.6 0-146 65.4-146 146 0 51.5 26.5 95.6 66.6 121.3 17.3 11.1 27.4 30.8 27.4 51.3V378c0 8.8 7.2 16 16 16h72c8.8 0 16-7.2 16-16v-17.4c0-20.5 10.1-40.2 27.4-51.3C375.5 283.6 402 239.5 402 188c0-80.6-65.4-146-146-146Z" fill="url(#bulbBlue)"/>
+    <path d="M196 378h120c12.2 0 22 9.8 22 22v10c0 12.2-9.8 22-22 22H196c-12.2 0-22-9.8-22-22v-10c0-12.2 9.8-22 22-22Z" fill="#041D79"/>
+    <path d="M202 452h108c8.8 0 16 7.2 16 16s-7.2 16-16 16H202c-8.8 0-16-7.2-16-16s7.2-16 16-16Z" fill="url(#bulbBlue)"/>
+    <path d="M224 484h64c0 15.5-12.5 28-28 28h-8c-15.5 0-28-12.5-28-28Z" fill="url(#bulbBlue)"/>
+    <path d="M156 126c15-45 56-74 103-74" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="10" stroke-linecap="round"/>
+    <path d="M150 154c-6 14-10 30-11 47" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="8" stroke-linecap="round"/>
+    <path d="M126 212c0 34 8 66 30 90 14 16 22 31 23 49v27" fill="#03145E" opacity="0.45"/>
+    <ellipse cx="238" cy="130" rx="106" ry="88" fill="url(#shine)"/>
+    <rect x="178" y="164" width="156" height="126" rx="32" fill="url(#accentGlow)" opacity="0.24"/>
+
+    <text x="256" y="250" text-anchor="middle" font-size="116" font-family="Inter, Arial, sans-serif" font-weight="800" fill="#FFFFFF" letter-spacing="2">FU</text>
+    <text x="256" y="414" text-anchor="middle" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700" fill="#FFFFFF" letter-spacing="1.4">FUNERALSUITE</text>
+  </g>
+</svg>

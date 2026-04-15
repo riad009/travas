@@ -1,0 +1,559 @@
+{
+  "generatedAt": "2026-04-15T08:11:13.319Z",
+  "count": 79,
+  "logos": [
+    {
+      "id": "aqurion-holdings",
+      "name": "Aqurion Holdings",
+      "category": "Corporate",
+      "accentColor": "#6C63FF",
+      "file": "aqurion-holdings-bulb.svg"
+    },
+    {
+      "id": "aqurion-ai",
+      "name": "Aqurion AI",
+      "category": "Technology",
+      "accentColor": "#00D4FF",
+      "file": "aqurion-ai-bulb.svg"
+    },
+    {
+      "id": "aqurion-marketing",
+      "name": "Aqurion Marketing",
+      "category": "Marketing",
+      "accentColor": "#FF6B6B",
+      "file": "aqurion-marketing-bulb.svg"
+    },
+    {
+      "id": "aqurion-financial",
+      "name": "Aqurion Financial",
+      "category": "Finance",
+      "accentColor": "#4ECDC4",
+      "file": "aqurion-financial-bulb.svg"
+    },
+    {
+      "id": "aqurion-directory",
+      "name": "Aqurion Directory",
+      "category": "Directory",
+      "accentColor": "#A78BFA",
+      "file": "aqurion-directory-bulb.svg"
+    },
+    {
+      "id": "aqurion-stores",
+      "name": "Aqurion Stores",
+      "category": "Commerce",
+      "accentColor": "#F59E0B",
+      "file": "aqurion-stores-bulb.svg"
+    },
+    {
+      "id": "aqurion-sales",
+      "name": "Aqurion Sales",
+      "category": "Sales",
+      "accentColor": "#10B981",
+      "file": "aqurion-sales-bulb.svg"
+    },
+    {
+      "id": "aqurion-dev",
+      "name": "Aqurion Development",
+      "category": "Technology",
+      "accentColor": "#00FF88",
+      "file": "aqurion-dev-bulb.svg"
+    },
+    {
+      "id": "aqurion-sa",
+      "name": "Aqurion South America",
+      "category": "Regional",
+      "accentColor": "#FFD700",
+      "file": "aqurion-sa-bulb.svg"
+    },
+    {
+      "id": "travis-roque-soto",
+      "name": "ExExecutive Profile",
+      "category": "Personal",
+      "accentColor": "#F5A623",
+      "file": "travis-roque-soto-bulb.svg"
+    },
+    {
+      "id": "aqurion-ps",
+      "name": "Aqurion Property Services",
+      "category": "Real Estate",
+      "accentColor": "#3B82F6",
+      "file": "aqurion-ps-bulb.svg"
+    },
+    {
+      "id": "aqurion-hospitality",
+      "name": "Aqurion Food & Hospitality",
+      "category": "Hospitality",
+      "accentColor": "#D97706",
+      "file": "aqurion-hospitality-bulb.svg"
+    },
+    {
+      "id": "aqurion-home",
+      "name": "Aqurion Home Services",
+      "category": "Home Services",
+      "accentColor": "#F97316",
+      "file": "aqurion-home-bulb.svg"
+    },
+    {
+      "id": "aqurion-atm",
+      "name": "Aqurion Automotive",
+      "category": "Automotive",
+      "accentColor": "#EF4444",
+      "file": "aqurion-atm-bulb.svg"
+    },
+    {
+      "id": "aqurion-file",
+      "name": "Aqurion Finance & Legal",
+      "category": "Professional Services",
+      "accentColor": "#8B5CF6",
+      "file": "aqurion-file-bulb.svg"
+    },
+    {
+      "id": "aqurion-leisure",
+      "name": "Aqurion Leisure & Recreation",
+      "category": "Travel",
+      "accentColor": "#06B6D4",
+      "file": "aqurion-leisure-bulb.svg"
+    },
+    {
+      "id": "aqurion-travel",
+      "name": "Aqurion TravelSuite",
+      "category": "Travel",
+      "accentColor": "#0EA5E9",
+      "file": "aqurion-travel-bulb.svg"
+    },
+    {
+      "id": "aqurion-wellness",
+      "name": "Aqurion Beauty, Wellness & Fitness",
+      "category": "Health & Wellness",
+      "accentColor": "#22C55E",
+      "file": "aqurion-wellness-bulb.svg"
+    },
+    {
+      "id": "aqurion-animal",
+      "name": "Aqurion Animal & Veterinary",
+      "category": "Animal Services",
+      "accentColor": "#84CC16",
+      "file": "aqurion-animal-bulb.svg"
+    },
+    {
+      "id": "aqurion-services",
+      "name": "Aqurion Security & Utilities",
+      "category": "Security & Municipal",
+      "accentColor": "#64748B",
+      "file": "aqurion-services-bulb.svg"
+    },
+    {
+      "id": "aqurion-burser",
+      "name": "Aqurion Education / Nonprofit / Campaigns",
+      "category": "Education & Non-Profit",
+      "accentColor": "#EC4899",
+      "file": "aqurion-burser-bulb.svg"
+    },
+    {
+      "id": "aqurion-rc",
+      "name": "Aqurion Retail & Commerce",
+      "category": "Retail",
+      "accentColor": "#F43F5E",
+      "file": "aqurion-rc-bulb.svg"
+    },
+    {
+      "id": "aqurion-creative",
+      "name": "Aqurion Photography, Creative & Media",
+      "category": "Creative",
+      "accentColor": "#A855F7",
+      "file": "aqurion-creative-bulb.svg"
+    },
+    {
+      "id": "aqurion-propertyflow",
+      "name": "Aqurion PropertyFlow",
+      "category": "Real Estate",
+      "accentColor": "#3B82F6",
+      "file": "aqurion-propertyflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-hoapro",
+      "name": "Aqurion HOAPro",
+      "category": "Real Estate",
+      "accentColor": "#3B82F6",
+      "file": "aqurion-hoapro-bulb.svg"
+    },
+    {
+      "id": "aqurion-hotelsuite",
+      "name": "Aqurion HotelSuite",
+      "category": "Real Estate",
+      "accentColor": "#3B82F6",
+      "file": "aqurion-hotelsuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-marinasuite",
+      "name": "Aqurion MarinaSuite",
+      "category": "Real Estate",
+      "accentColor": "#3B82F6",
+      "file": "aqurion-marinasuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-parkingflow",
+      "name": "Aqurion ParkingFlow",
+      "category": "Real Estate",
+      "accentColor": "#3B82F6",
+      "file": "aqurion-parkingflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-funeralsuite",
+      "name": "Aqurion FuneralSuite",
+      "category": "Real Estate",
+      "accentColor": "#3B82F6",
+      "file": "aqurion-funeralsuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-homeservicessuite",
+      "name": "Aqurion HomeServicesSuite",
+      "category": "Home Services",
+      "accentColor": "#F97316",
+      "file": "aqurion-homeservicessuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-solarpro",
+      "name": "Aqurion SolarPro",
+      "category": "Home Services",
+      "accentColor": "#F97316",
+      "file": "aqurion-solarpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-contractingplus",
+      "name": "Aqurion ContractingPlus",
+      "category": "Home Services",
+      "accentColor": "#F97316",
+      "file": "aqurion-contractingplus-bulb.svg"
+    },
+    {
+      "id": "aqurion-autosuite",
+      "name": "Aqurion AutoSuite",
+      "category": "Automotive",
+      "accentColor": "#EF4444",
+      "file": "aqurion-autosuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-towsuite",
+      "name": "Aqurion TowSuite",
+      "category": "Automotive",
+      "accentColor": "#EF4444",
+      "file": "aqurion-towsuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-motorsone",
+      "name": "Aqurion MotorsOne",
+      "category": "Automotive",
+      "accentColor": "#EF4444",
+      "file": "aqurion-motorsone-bulb.svg"
+    },
+    {
+      "id": "aqurion-legalone",
+      "name": "Aqurion LegalOne",
+      "category": "Professional Services",
+      "accentColor": "#8B5CF6",
+      "file": "aqurion-legalone-bulb.svg"
+    },
+    {
+      "id": "aqurion-financeflow",
+      "name": "Aqurion FinanceFlow",
+      "category": "Professional Services",
+      "accentColor": "#8B5CF6",
+      "file": "aqurion-financeflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-escrowsuite",
+      "name": "Aqurion EscrowSuite",
+      "category": "Professional Services",
+      "accentColor": "#8B5CF6",
+      "file": "aqurion-escrowsuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-collectionagencysuite",
+      "name": "Aqurion CollectionAgencySuite",
+      "category": "Professional Services",
+      "accentColor": "#8B5CF6",
+      "file": "aqurion-collectionagencysuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-clubmanager",
+      "name": "Aqurion ClubManager",
+      "category": "Travel",
+      "accentColor": "#06B6D4",
+      "file": "aqurion-clubmanager-bulb.svg"
+    },
+    {
+      "id": "aqurion-skiresortflow",
+      "name": "Aqurion SkiResortFlow",
+      "category": "Travel",
+      "accentColor": "#06B6D4",
+      "file": "aqurion-skiresortflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-amusementflow",
+      "name": "Aqurion AmusementFlow",
+      "category": "Travel",
+      "accentColor": "#06B6D4",
+      "file": "aqurion-amusementflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-salonpro",
+      "name": "Aqurion SalonPro",
+      "category": "Health & Wellness",
+      "accentColor": "#22C55E",
+      "file": "aqurion-salonpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-doggroomingflow",
+      "name": "Aqurion DogGroomingFlow",
+      "category": "Health & Wellness",
+      "accentColor": "#22C55E",
+      "file": "aqurion-doggroomingflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-fitnessflow",
+      "name": "Aqurion FitnessFlow",
+      "category": "Health & Wellness",
+      "accentColor": "#22C55E",
+      "file": "aqurion-fitnessflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-spasuite",
+      "name": "Aqurion SpaSuite",
+      "category": "Health & Wellness",
+      "accentColor": "#22C55E",
+      "file": "aqurion-spasuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-cosmeticpro",
+      "name": "Aqurion CosmeticPro",
+      "category": "Health & Wellness",
+      "accentColor": "#22C55E",
+      "file": "aqurion-cosmeticpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-dentalpro",
+      "name": "Aqurion DentalPro",
+      "category": "Health & Wellness",
+      "accentColor": "#22C55E",
+      "file": "aqurion-dentalpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-adjustmentpro",
+      "name": "Aqurion AdjustmentPro",
+      "category": "Health & Wellness",
+      "accentColor": "#22C55E",
+      "file": "aqurion-adjustmentpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-psychpro",
+      "name": "Aqurion PsychPro",
+      "category": "Health & Wellness",
+      "accentColor": "#22C55E",
+      "file": "aqurion-psychpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-medpro",
+      "name": "Aqurion MedPro",
+      "category": "Health & Wellness",
+      "accentColor": "#22C55E",
+      "file": "aqurion-medpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-vetpro",
+      "name": "Aqurion VetPro",
+      "category": "Animal Services",
+      "accentColor": "#84CC16",
+      "file": "aqurion-vetpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-breedingsuite",
+      "name": "Aqurion BreedingSuite",
+      "category": "Animal Services",
+      "accentColor": "#84CC16",
+      "file": "aqurion-breedingsuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-securitymaster",
+      "name": "Aqurion SecurityMaster",
+      "category": "Security & Municipal",
+      "accentColor": "#64748B",
+      "file": "aqurion-securitymaster-bulb.svg"
+    },
+    {
+      "id": "aqurion-utilitysuite",
+      "name": "Aqurion UtilitySuite",
+      "category": "Security & Municipal",
+      "accentColor": "#64748B",
+      "file": "aqurion-utilitysuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-munisuite",
+      "name": "Aqurion MuniSuite",
+      "category": "Security & Municipal",
+      "accentColor": "#64748B",
+      "file": "aqurion-munisuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-fintechlab",
+      "name": "Aqurion Beta Lab",
+      "category": "Education & Career",
+      "accentColor": "#7C3AED",
+      "file": "aqurion-fintechlab-bulb.svg"
+    },
+    {
+      "id": "aqurion-educationsuite",
+      "name": "Aqurion EducationSuite",
+      "category": "Education & Non-Profit",
+      "accentColor": "#EC4899",
+      "file": "aqurion-educationsuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-donorflow",
+      "name": "Aqurion DonorFlow",
+      "category": "Education & Non-Profit",
+      "accentColor": "#EC4899",
+      "file": "aqurion-donorflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-roster",
+      "name": "Aqurion Roster",
+      "category": "Education & Non-Profit",
+      "accentColor": "#EC4899",
+      "file": "aqurion-roster-bulb.svg"
+    },
+    {
+      "id": "aqurion-careflow",
+      "name": "Aqurion CareFlow",
+      "category": "Education & Non-Profit",
+      "accentColor": "#EC4899",
+      "file": "aqurion-careflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-restaurantone",
+      "name": "Aqurion RestaurantOne",
+      "category": "Hospitality",
+      "accentColor": "#D97706",
+      "file": "aqurion-restaurantone-bulb.svg"
+    },
+    {
+      "id": "aqurion-cateringsuite",
+      "name": "Aqurion CateringSuite",
+      "category": "Hospitality",
+      "accentColor": "#D97706",
+      "file": "aqurion-cateringsuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-foodtruckpro",
+      "name": "Aqurion FoodTruckPro",
+      "category": "Hospitality",
+      "accentColor": "#D97706",
+      "file": "aqurion-foodtruckpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-barsuite",
+      "name": "Aqurion BarSuite",
+      "category": "Hospitality",
+      "accentColor": "#D97706",
+      "file": "aqurion-barsuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-winerymanager",
+      "name": "Aqurion WineryManager",
+      "category": "Hospitality",
+      "accentColor": "#D97706",
+      "file": "aqurion-winerymanager-bulb.svg"
+    },
+    {
+      "id": "aqurion-weddingplannerpro",
+      "name": "Aqurion WeddingPlannerPro",
+      "category": "Hospitality",
+      "accentColor": "#D97706",
+      "file": "aqurion-weddingplannerpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-retailflow",
+      "name": "Aqurion RetailFlow",
+      "category": "Retail",
+      "accentColor": "#F43F5E",
+      "file": "aqurion-retailflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-ecommercesuite",
+      "name": "Aqurion EcommerceSuite",
+      "category": "Retail",
+      "accentColor": "#F43F5E",
+      "file": "aqurion-ecommercesuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-tobaccoliquorpro",
+      "name": "Aqurion TobaccoLiquorPro",
+      "category": "Retail",
+      "accentColor": "#F43F5E",
+      "file": "aqurion-tobaccoliquorpro-bulb.svg"
+    },
+    {
+      "id": "aqurion-jewelrysuite",
+      "name": "Aqurion JewelrySuite",
+      "category": "Retail",
+      "accentColor": "#F43F5E",
+      "file": "aqurion-jewelrysuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-pawnshoppro",
+      "name": "Aqurion PawnShopPro",
+      "category": "Retail",
+      "accentColor": "#F43F5E",
+      "file": "aqurion-pawnshoppro-bulb.svg"
+    },
+    {
+      "id": "aqurion-printsignmaster",
+      "name": "Aqurion PrintSignMaster",
+      "category": "Retail",
+      "accentColor": "#F43F5E",
+      "file": "aqurion-printsignmaster-bulb.svg"
+    },
+    {
+      "id": "aqurion-staffingmaster",
+      "name": "Aqurion StaffingMaster",
+      "category": "Retail",
+      "accentColor": "#F43F5E",
+      "file": "aqurion-staffingmaster-bulb.svg"
+    },
+    {
+      "id": "aqurion-fleetflow",
+      "name": "Aqurion FleetFlow",
+      "category": "Retail",
+      "accentColor": "#F43F5E",
+      "file": "aqurion-fleetflow-bulb.svg"
+    },
+    {
+      "id": "aqurion-enterprise",
+      "name": "Aqurion Enterprise",
+      "category": "Retail",
+      "accentColor": "#F43F5E",
+      "file": "aqurion-enterprise-bulb.svg"
+    },
+    {
+      "id": "aqurion-photographermaster",
+      "name": "Aqurion PhotographerMaster",
+      "category": "Creative",
+      "accentColor": "#A855F7",
+      "file": "aqurion-photographermaster-bulb.svg"
+    },
+    {
+      "id": "aqurion-designsuite",
+      "name": "Aqurion DesignSuite",
+      "category": "Creative",
+      "accentColor": "#A855F7",
+      "file": "aqurion-designsuite-bulb.svg"
+    },
+    {
+      "id": "aqurion-movieperformancepro",
+      "name": "Aqurion MoviePerformancePro",
+      "category": "Creative",
+      "accentColor": "#A855F7",
+      "file": "aqurion-movieperformancepro-bulb.svg"
+    }
+  ]
+}
