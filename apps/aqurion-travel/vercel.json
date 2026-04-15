@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd ../.. && npx turbo run build --filter={./apps/aqurion-travel}",
+  "installCommand": "npm install --prefix ../..",
+  "outputDirectory": ".next",
+  "framework": "nextjs"
+}

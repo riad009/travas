@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useCallback } from "react";
+import * as THREE from "three";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { AQURION_BRANDS, getBrandsByTier } from "@repo/ui/brand-config";
 
@@ -132,19 +133,273 @@ export default function HomePage() {
   const [formSent, setFormSent] = React.useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const starfieldRef = useRef<HTMLElement>(null);
-  const bgStarsRef = useRef<{ x: number; y: number; r: number; phase: number; speed: number }[]>([]);
+  const threeRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: -1, y: -1 });
   const dimRef = useRef({ w: 0, h: 0 });
   const hovIdxRef = useRef<number | null>(null);
   const hoverRadii = useRef<number[]>(new Array(allCompanies.length).fill(18));
   const bp = process.env.NODE_ENV === "development" ? "/aqurion-holdings" : "";
 
-  // Scroll-driven vanish for featured cards
   const { scrollYProgress } = useScroll({ target: starfieldRef, offset: ["start start", "end start"] });
   const featuredOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const featuredY = useTransform(scrollYProgress, [0, 0.3], [0, 80]);
 
-  /* ── Canvas: twinkling background stars ── */
+  /* ── Three.js Galaxy/Nebula Background ── */
+  useEffect(() => {
+    const container = threeRef.current; if (!container) return;
+    const W = container.offsetWidth, H = container.offsetHeight;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, W / H, 0.1, 1000);
+    camera.position.z = 5;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    renderer.setSize(W, H);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x010208);
+    container.appendChild(renderer.domElement);
+
+    const galaxyGroup = new THREE.Group();
+    scene.add(galaxyGroup);
+
+    // ── 1. Nebula ring particles (Helix ring) ──
+    const ringCount = 60000;
+    const ringGeo = new THREE.BufferGeometry();
+    const ringPos = new Float32Array(ringCount * 3);
+    const ringCol = new Float32Array(ringCount * 3);
+    const ringSz = new Float32Array(ringCount);
+    const ringRadius = 2.2;
+    const ringThick = 0.6;
+
+    for (let i = 0; i < ringCount; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const r = ringRadius + (Math.random() - 0.5) * ringThick * 2;
+      const jitter = (Math.random() - 0.5) * ringThick * 1.2;
+      ringPos[i * 3] = Math.cos(angle) * r * 1.15 + (Math.random() - 0.5) * 0.15;
+      ringPos[i * 3 + 1] = Math.sin(angle) * r * 0.85 + (Math.random() - 0.5) * 0.15;
+      ringPos[i * 3 + 2] = jitter * 0.3;
+
+      // Color: gold/amber/orange
+      const hue = Math.random();
+      if (hue < 0.35) { ringCol[i*3]=0.92+Math.random()*0.08; ringCol[i*3+1]=0.7+Math.random()*0.15; ringCol[i*3+2]=0.15+Math.random()*0.15; }
+      else if (hue < 0.65) { ringCol[i*3]=0.85+Math.random()*0.15; ringCol[i*3+1]=0.5+Math.random()*0.2; ringCol[i*3+2]=0.08+Math.random()*0.1; }
+      else { ringCol[i*3]=0.7+Math.random()*0.25; ringCol[i*3+1]=0.25+Math.random()*0.2; ringCol[i*3+2]=0.04+Math.random()*0.08; }
+
+      ringSz[i] = 1.5 + Math.random() * 4;
+    }
+    ringGeo.setAttribute('position', new THREE.BufferAttribute(ringPos, 3));
+    ringGeo.setAttribute('color', new THREE.BufferAttribute(ringCol, 3));
+    ringGeo.setAttribute('size', new THREE.BufferAttribute(ringSz, 1));
+
+    const ringMat = new THREE.ShaderMaterial({
+      vertexShader: `
+        attribute float size;
+        varying vec3 vColor;
+        void main() {
+          vColor = color;
+          vec4 mv = modelViewMatrix * vec4(position, 1.0);
+          gl_PointSize = size * (300.0 / -mv.z);
+          gl_Position = projectionMatrix * mv;
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vColor;
+        void main() {
+          float d = length(gl_PointCoord - vec2(0.5));
+          if (d > 0.5) discard;
+          float alpha = smoothstep(0.5, 0.1, d);
+          gl_FragColor = vec4(vColor, alpha * 0.7);
+        }
+      `,
+      vertexColors: true,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    const ringPoints = new THREE.Points(ringGeo, ringMat);
+    galaxyGroup.add(ringPoints);
+
+    // ── 2. Gas clouds (reddish-brown outer wisps) ──
+    const gasCount = 15000;
+    const gasGeo = new THREE.BufferGeometry();
+    const gasPos = new Float32Array(gasCount * 3);
+    const gasCol = new Float32Array(gasCount * 3);
+    const gasSz = new Float32Array(gasCount);
+    for (let i = 0; i < gasCount; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const r = 1.5 + Math.random() * 3.5;
+      gasPos[i*3] = Math.cos(angle) * r * (0.7 + Math.random() * 0.6);
+      gasPos[i*3+1] = Math.sin(angle) * r * (0.7 + Math.random() * 0.6);
+      gasPos[i*3+2] = (Math.random() - 0.5) * 0.8;
+      gasCol[i*3] = 0.3 + Math.random() * 0.35;
+      gasCol[i*3+1] = 0.06 + Math.random() * 0.1;
+      gasCol[i*3+2] = 0.02 + Math.random() * 0.06;
+      gasSz[i] = 3 + Math.random() * 12;
+    }
+    gasGeo.setAttribute('position', new THREE.BufferAttribute(gasPos, 3));
+    gasGeo.setAttribute('color', new THREE.BufferAttribute(gasCol, 3));
+    gasGeo.setAttribute('size', new THREE.BufferAttribute(gasSz, 1));
+    const gasMat = new THREE.ShaderMaterial({
+      vertexShader: `
+        attribute float size;
+        varying vec3 vColor;
+        void main() {
+          vColor = color;
+          vec4 mv = modelViewMatrix * vec4(position, 1.0);
+          gl_PointSize = size * (300.0 / -mv.z);
+          gl_Position = projectionMatrix * mv;
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vColor;
+        void main() {
+          float d = length(gl_PointCoord - vec2(0.5));
+          if (d > 0.5) discard;
+          float alpha = smoothstep(0.5, 0.0, d) * 0.15;
+          gl_FragColor = vec4(vColor, alpha);
+        }
+      `,
+      vertexColors: true,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    galaxyGroup.add(new THREE.Points(gasGeo, gasMat));
+
+    // ── 3. Background stars ──
+    const starCount = 5000;
+    const starGeo = new THREE.BufferGeometry();
+    const starPos = new Float32Array(starCount * 3);
+    const starSz = new Float32Array(starCount);
+    for (let i = 0; i < starCount; i++) {
+      starPos[i*3] = (Math.random() - 0.5) * 20;
+      starPos[i*3+1] = (Math.random() - 0.5) * 20;
+      starPos[i*3+2] = (Math.random() - 0.5) * 10 - 2;
+      starSz[i] = 0.5 + Math.random() * 2;
+    }
+    starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+    starGeo.setAttribute('size', new THREE.BufferAttribute(starSz, 1));
+    const starMat = new THREE.ShaderMaterial({
+      vertexShader: `
+        attribute float size;
+        void main() {
+          vec4 mv = modelViewMatrix * vec4(position, 1.0);
+          gl_PointSize = size * (200.0 / -mv.z);
+          gl_Position = projectionMatrix * mv;
+        }
+      `,
+      fragmentShader: `
+        void main() {
+          float d = length(gl_PointCoord - vec2(0.5));
+          if (d > 0.5) discard;
+          float alpha = smoothstep(0.5, 0.0, d);
+          gl_FragColor = vec4(1.0, 1.0, 1.0, alpha * 0.6);
+        }
+      `,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    scene.add(new THREE.Points(starGeo, starMat));
+
+    // ── 4. Bright blue stars ──
+    const blueCount = 20;
+    const blueGeo = new THREE.BufferGeometry();
+    const bluePos = new Float32Array(blueCount * 3);
+    const blueSz = new Float32Array(blueCount);
+    const blueCol = new Float32Array(blueCount * 3);
+    for (let i = 0; i < blueCount; i++) {
+      bluePos[i*3] = (Math.random() - 0.5) * 12;
+      bluePos[i*3+1] = (Math.random() - 0.5) * 8;
+      bluePos[i*3+2] = (Math.random() - 0.5) * 2 - 1;
+      blueSz[i] = 6 + Math.random() * 10;
+      blueCol[i*3] = 0.4 + Math.random() * 0.2;
+      blueCol[i*3+1] = 0.6 + Math.random() * 0.2;
+      blueCol[i*3+2] = 0.9 + Math.random() * 0.1;
+    }
+    blueGeo.setAttribute('position', new THREE.BufferAttribute(bluePos, 3));
+    blueGeo.setAttribute('size', new THREE.BufferAttribute(blueSz, 1));
+    blueGeo.setAttribute('color', new THREE.BufferAttribute(blueCol, 3));
+    const blueMat = new THREE.ShaderMaterial({
+      vertexShader: `
+        attribute float size;
+        varying vec3 vColor;
+        void main() {
+          vColor = color;
+          vec4 mv = modelViewMatrix * vec4(position, 1.0);
+          gl_PointSize = size * (300.0 / -mv.z);
+          gl_Position = projectionMatrix * mv;
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vColor;
+        void main() {
+          float d = length(gl_PointCoord - vec2(0.5));
+          if (d > 0.5) discard;
+          float glow = exp(-d * 4.0);
+          float core = smoothstep(0.15, 0.0, d);
+          vec3 col = mix(vColor, vec3(1.0), core);
+          float alpha = glow * 0.6 + core * 0.8;
+          gl_FragColor = vec4(col, alpha);
+        }
+      `,
+      vertexColors: true,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+    scene.add(new THREE.Points(blueGeo, blueMat));
+
+    // ── 5. Center void (dark sphere) ──
+    const voidGeo = new THREE.SphereGeometry(1.1, 32, 32);
+    const voidMat = new THREE.MeshBasicMaterial({ color: 0x010208, transparent: true, opacity: 0.85 });
+    const voidMesh = new THREE.Mesh(voidGeo, voidMat);
+    voidMesh.scale.set(1.15, 0.85, 0.3);
+    galaxyGroup.add(voidMesh);
+
+    // Mouse tracking for parallax
+    const mousePos = { x: 0, y: 0 };
+    const onMouse = (e: MouseEvent) => {
+      mousePos.x = (e.clientX / W - 0.5) * 2;
+      mousePos.y = (e.clientY / H - 0.5) * 2;
+    };
+    window.addEventListener('mousemove', onMouse);
+
+    // Animation
+    let threeAnim: number;
+    const clock = new THREE.Clock();
+    function animate() {
+      threeAnim = requestAnimationFrame(animate);
+      const elapsed = clock.getElapsedTime();
+      // Subtle galaxy rotation
+      galaxyGroup.rotation.z = elapsed * 0.01;
+      // Mouse parallax
+      camera.position.x += (mousePos.x * 0.3 - camera.position.x) * 0.02;
+      camera.position.y += (-mousePos.y * 0.3 - camera.position.y) * 0.02;
+      camera.lookAt(0, 0, 0);
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    const onResize = () => {
+      const w = container.offsetWidth, h = container.offsetHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    };
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      cancelAnimationFrame(threeAnim);
+      window.removeEventListener('mousemove', onMouse);
+      window.removeEventListener('resize', onResize);
+      renderer.dispose();
+      container.removeChild(renderer.domElement);
+    };
+  }, []);
+
+
+  /* ── Canvas: company nodes only (galaxy is CSS bg image) ── */
   useEffect(() => {
     const c = canvasRef.current; if (!c) return;
     const ctx = c.getContext("2d"); if (!ctx) return;
@@ -153,34 +408,13 @@ export default function HomePage() {
     c.width = W * dpr; c.height = H * dpr; ctx.scale(dpr, dpr);
     dimRef.current = { w: W, h: H };
 
-    // Generate background star dots
-    const bg: typeof bgStarsRef.current = [];
-    for (let i = 0; i < 600; i++) bg.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 2.2 + 0.5, phase: Math.random() * Math.PI * 2, speed: 0.002 + Math.random() * 0.004 });
-    bgStarsRef.current = bg;
-
     let t = 0; let animId: number;
-    const mx = mouseRef.current;
 
     function draw() {
       if (!ctx) return;
       const W2 = dimRef.current.w, H2 = dimRef.current.h;
       ctx.clearRect(0, 0, W2, H2);
 
-      // Steady background stars (no blinking)
-      bgStarsRef.current.forEach(s => {
-        const brightness = 0.5 + (s.r / 2.7) * 0.4; // brighter = bigger, constant
-        // Slow drift
-        s.x += Math.sin(t * s.speed + s.phase) * 0.08;
-        s.y += Math.cos(t * s.speed * 0.8 + s.phase) * 0.05;
-        // Wrap around
-        if (s.x < -5) s.x = W2 + 5; if (s.x > W2 + 5) s.x = -5;
-        if (s.y < -5) s.y = H2 + 5; if (s.y > H2 + 5) s.y = -5;
-        ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${brightness})`; ctx.fill();
-        if (s.r > 1.5) { ctx.beginPath(); ctx.arc(s.x, s.y, s.r * 2.5, 0, Math.PI * 2); ctx.fillStyle = `rgba(255,255,255,${brightness * 0.1})`; ctx.fill(); }
-      });
-
-      // Company circle nodes
       const mxNow = mouseRef.current;
       let newHov: number | null = null;
 
@@ -189,40 +423,46 @@ export default function HomePage() {
         const dist = Math.sqrt((mxNow.x - cx) ** 2 + (mxNow.y - cy) ** 2);
         const isHov = dist < 30;
         if (isHov) newHov = i;
+        const sx = cx, sy = cy;
 
-        // Gentle slow orbit
-        const ox = Math.sin(t * 0.006 + i * 0.5) * 4;
-        const oy = Math.cos(t * 0.005 + i * 0.7) * 4;
-        const sx = cx + ox, sy = cy + oy;
-
-        // Smooth radius lerp (18 → 30 on hover)
         const targetR = isHov ? 30 : 18;
         hoverRadii.current[i] = hoverRadii.current[i]! + (targetR - hoverRadii.current[i]!) * 0.04;
         const r = hoverRadii.current[i]!;
-        const hoverFactor = Math.max(0, (r - 18) / 12); // 0..1
+        const hoverFactor = Math.max(0, (r - 18) / 12);
         const accent = allCompanies[i]?.accentColor || '#6C63FF';
+        const ar = parseInt(accent.slice(1, 3), 16), ag = parseInt(accent.slice(3, 5), 16), ab = parseInt(accent.slice(5, 7), 16);
 
-        // Ring circle — bright white by default, accent on hover
+        // Glow on hover
+        if (hoverFactor > 0.05) {
+          const glowG = ctx.createRadialGradient(sx, sy, r * 0.5, sx, sy, r * 2.5);
+          glowG.addColorStop(0, `rgba(${ar},${ag},${ab},${0.2 * hoverFactor})`);
+          glowG.addColorStop(1, "transparent");
+          ctx.fillStyle = glowG; ctx.beginPath(); ctx.arc(sx, sy, r * 2.5, 0, Math.PI * 2); ctx.fill();
+        }
+
+        // Ring
         ctx.beginPath(); ctx.arc(sx, sy, r, 0, Math.PI * 2);
-        const accentRgba = `rgba(${parseInt(accent.slice(1, 3), 16)},${parseInt(accent.slice(3, 5), 16)},${parseInt(accent.slice(5, 7), 16)},${0.3 + hoverFactor * 0.7})`;
-        ctx.strokeStyle = hoverFactor > 0.05 ? accentRgba : 'rgba(255,255,255,0.8)';
+        ctx.strokeStyle = hoverFactor > 0.05 ? `rgba(${ar},${ag},${ab},${0.3 + hoverFactor * 0.7})` : 'rgba(255,255,255,0.7)';
         ctx.lineWidth = 0.4 + hoverFactor * 1.3;
         ctx.stroke();
 
-        // Center dot — bright
+        // Dot
         const dotR = 3.5 + hoverFactor * 2;
         ctx.beginPath(); ctx.arc(sx, sy, dotR, 0, Math.PI * 2);
-        ctx.fillStyle = hoverFactor > 0.05 ? accent : 'rgba(255,255,255,0.8)';
+        ctx.fillStyle = hoverFactor > 0.05 ? accent : 'rgba(255,255,255,0.7)';
         ctx.fill();
 
-        // Name label (fades in smoothly)
+        // Label
         if (hoverFactor > 0.3 && allCompanies[i]) {
           ctx.save();
           ctx.globalAlpha = Math.min(1, (hoverFactor - 0.3) * 2);
-          ctx.font = '700 14px Inter, sans-serif';
-          ctx.fillStyle = accent;
-          ctx.textAlign = 'left';
-          ctx.fillText(allCompanies[i]!.name, sx + r + 12, sy + 5);
+          ctx.font = '700 13px Inter, sans-serif';
+          const tw = ctx.measureText(allCompanies[i]!.name).width;
+          const lx = sx + r + 8, ly = sy - 10;
+          ctx.fillStyle = 'rgba(0,0,0,0.7)';
+          ctx.beginPath(); ctx.roundRect(lx, ly, tw + 16, 24, 6); ctx.fill();
+          ctx.fillStyle = accent; ctx.textAlign = 'left';
+          ctx.fillText(allCompanies[i]!.name, lx + 8, sy + 5);
           ctx.restore();
         }
       });
@@ -244,16 +484,14 @@ export default function HomePage() {
       const W2 = dimRef.current.w, H2 = dimRef.current.h;
       for (let i = 0; i < companyPositions.length; i++) {
         const cx = companyPositions[i]!.x * W2, cy = companyPositions[i]!.y * H2;
-        if (Math.sqrt((mx2 - cx) ** 2 + (my2 - cy) ** 2) < 25) {
-          setActive(i); return;
-        }
+        if (Math.sqrt((mx2 - cx) ** 2 + (my2 - cy) ** 2) < 25) { setActive(i); return; }
       }
     };
     const resize = () => {
       W = c.offsetWidth; H = c.offsetHeight;
       c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       dimRef.current = { w: W, h: H };
-      bgStarsRef.current.forEach(s => { s.x = Math.random() * W; s.y = Math.random() * H; });
+      // resize handled
     };
 
     c.addEventListener("mousemove", onMove);
@@ -269,7 +507,7 @@ export default function HomePage() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-        .hq{background:#000;color:#fff;min-height:100vh;font-family:'Inter',sans-serif;overflow-x:hidden;}
+        .hq{background:#020408;color:#fff;min-height:100vh;font-family:'Inter',sans-serif;overflow-x:hidden;}
 
         .hq-logo{position:fixed;top:1.5rem;left:2rem;z-index:101;display:flex;align-items:center;gap:0.5rem;text-decoration:none;}
         .hq-logo img{width:28px;height:28px;border-radius:6px;}
@@ -279,7 +517,20 @@ export default function HomePage() {
         .hq-nav a:hover{background:#fff;color:#000;}
 
         /* FULL-SCREEN STARFIELD HERO */
-        .hq-starfield{position:relative;width:100%;height:100vh;overflow:hidden;}
+        .hq-starfield{position:relative;width:100%;height:100vh;overflow:hidden;
+          background:
+            radial-gradient(ellipse 40% 35% at 50% 50%, rgba(2,3,12,0.97) 0%, transparent 100%),
+            radial-gradient(ellipse 52% 48% at 50% 50%, rgba(212,175,55,0.1) 30%, rgba(180,100,20,0.06) 60%, transparent 100%),
+            radial-gradient(ellipse 58% 52% at 50% 50%, transparent 35%, rgba(200,140,30,0.08) 45%, rgba(160,80,15,0.05) 55%, transparent 70%),
+            radial-gradient(ellipse 70% 65% at 50% 50%, transparent 50%, rgba(120,40,15,0.06) 65%, rgba(80,20,10,0.04) 80%, transparent 100%),
+            radial-gradient(ellipse 85% 80% at 48% 52%, transparent 55%, rgba(90,25,12,0.05) 70%, rgba(50,12,8,0.03) 85%, transparent 100%),
+            radial-gradient(circle at 22% 30%, rgba(80,150,240,0.06) 0%, transparent 25%),
+            radial-gradient(circle at 80% 35%, rgba(80,150,240,0.05) 0%, transparent 22%),
+            radial-gradient(circle at 15% 65%, rgba(60,120,220,0.04) 0%, transparent 18%),
+            radial-gradient(circle at 85% 70%, rgba(60,120,220,0.04) 0%, transparent 20%),
+            radial-gradient(circle at 35% 15%, rgba(70,140,230,0.03) 0%, transparent 15%),
+            radial-gradient(circle at 70% 85%, rgba(70,140,230,0.03) 0%, transparent 15%),
+            #020408;}
         .hq-starfield canvas{position:absolute;inset:0;width:100%;height:100%;}
         /* Featured cards at bottom of starfield */
         .hq-featured{position:absolute;bottom:3rem;left:0;right:0;z-index:3;display:flex;gap:1rem;padding:0 3rem;overflow-x:auto;scrollbar-width:none;}
@@ -403,6 +654,7 @@ export default function HomePage() {
 
         {/* ═══ FULL-SCREEN STARFIELD — scroll to reveal ═══ */}
         <section id="constellation" ref={starfieldRef} className="hq-starfield">
+          <div ref={threeRef} className="hq-three-bg" />
           <canvas ref={canvasRef} />
         </section>
 
